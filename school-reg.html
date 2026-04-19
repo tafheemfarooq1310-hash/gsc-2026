@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Institutional Entry | GSC 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #ffffff;
+      }
+      h1 {
+        font-family: "Playfair Display", serif;
+      }
+      input:focus {
+        border-color: #000;
+        background-color: #fafafa;
+      }
+      .gsc-shadow {
+        box-shadow: 20px 20px 0px 0px rgba(0, 0, 0, 1);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-50 min-h-screen flex items-center justify-center py-12 px-4"
+  >
+    <div
+      class="max-w-2xl w-full bg-white border-[3px] border-black p-8 md:p-16 relative shadow-[15px_15px_0px_0px_rgba(0,0,0,1)]"
+    >
+      <a
+        href="index.html"
+        class="absolute top-6 left-8 text-[10px] font-bold uppercase tracking-[0.3em] flex items-center hover:translate-x-[-5px] transition-transform"
+      >
+        <span class="mr-2">←</span> Return to Portal
+      </a>
+
+      <div class="text-center mb-12 mt-4">
+        <span
+          class="text-[10px] bg-black text-white px-3 py-1 uppercase tracking-[0.4em] font-bold"
+          >Official Registry</span
+        >
+        <h1 class="text-4xl md:text-5xl font-bold mt-6 mb-2 italic">
+          Institutional Entry
+        </h1>
+        <p class="text-slate-400 text-sm font-light uppercase tracking-widest">
+          Global Scholars Championship &middot; J&K 2026
+        </p>
+      </div>
+
+      <form action="http://localhost:3000/register-school" method="POST">
+        <div class="grid md:grid-cols-2 gap-10">
+          <div class="relative group">
+            <label
+              class="text-[10px] font-bold uppercase tracking-widest text-slate-400 group-focus-within:text-black transition-colors"
+              >Institution Name</label
+            >
+            <input
+              type="text"
+              name="school_name"
+              required
+              placeholder="e.g. Burn Hall School"
+              class="w-full border-b-2 border-slate-200 py-3 outline-none transition-all duration-300 placeholder:text-slate-200"
+            />
+          </div>
+
+          <div class="relative group">
+            <label
+              class="text-[10px] font-bold uppercase tracking-widest text-slate-400 group-focus-within:text-black transition-colors"
+              >District / Location</label
+            >
+            <input
+              type="text"
+              name="location"
+              required
+              placeholder="e.g. Srinagar"
+              class="w-full border-b-2 border-slate-200 py-3 outline-none transition-all duration-300 placeholder:text-slate-200"
+            />
+          </div>
+        </div>
+
+        <div class="relative group">
+          <label
+            class="text-[10px] font-bold uppercase tracking-widest text-slate-400 group-focus-within:text-black transition-colors"
+            >Head of Institution / Coordinator</label
+          >
+          <input
+            type="text"
+            name="coordinator"
+            required
+            placeholder="Full Name"
+            class="w-full border-b-2 border-slate-200 py-3 outline-none transition-all duration-300 placeholder:text-slate-200"
+          />
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10">
+          <div class="relative group">
+            <label
+              class="text-[10px] font-bold uppercase tracking-widest text-slate-400 group-focus-within:text-black transition-colors"
+              >Official Email</label
+            >
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="admin@school.com"
+              class="w-full border-b-2 border-slate-200 py-3 outline-none transition-all duration-300 placeholder:text-slate-200"
+            />
+          </div>
+
+          <div class="relative group">
+            <label
+              class="text-[10px] font-bold uppercase tracking-widest text-slate-400 group-focus-within:text-black transition-colors"
+              >Expected Scholars</label
+            >
+            <input
+              type="number"
+              name="student_count"
+              required
+              placeholder="Total Students"
+              class="w-full border-b-2 border-slate-200 py-3 outline-none transition-all duration-300 placeholder:text-slate-200"
+            />
+          </div>
+        </div>
+
+        <div class="pt-6">
+          <button
+            type="submit"
+            class="w-full bg-black text-white py-6 text-sm font-bold uppercase tracking-[0.5em] border-2 border-black hover:bg-white hover:text-black transition-all duration-500 transform active:scale-[0.98]"
+          >
+            Confirm Enrollment
+          </button>
+          <p
+            class="text-[9px] text-center text-slate-400 mt-6 uppercase tracking-[0.2em]"
+          >
+            By submitting, the institution agrees to the GSC 2026 conduct
+            protocols.
+          </p>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
