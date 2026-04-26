@@ -10,6 +10,11 @@
       rel="stylesheet"
     />
     <style>
+      nav img:hover {
+        transform: rotate(15deg);
+        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+      }
       body {
         font-family: "Inter", sans-serif;
         scroll-behavior: smooth;
@@ -75,6 +80,22 @@
         </a>
       </div>
     </nav>
+    <div
+      class="bg-black text-white text-[10px] uppercase tracking-[0.4em] py-2 text-center font-bold"
+    >
+      Registration for Phase 1 closes in: <span id="timer">--:--:--:--</span>
+    </div>
+
+    <script>
+      // Simple countdown logic
+      const deadline = new Date("June 1, 2026 23:59:59").getTime();
+      setInterval(function () {
+        const now = new Date().getTime();
+        const diff = deadline - now;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById("timer").innerHTML = days + " Days Remaining";
+      }, 1000);
+    </script>
 
     <header class="py-32 px-6 md:px-16 text-center border-b border-black">
       <h1 class="text-6xl md:text-8xl mb-6 italic">
