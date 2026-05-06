@@ -3,110 +3,191 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GSC 2026 | Jammu & Kashmir</title>
+    <title>GSC 2026 | Global Scholars Championship</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/jpeg" href="logo.jpg" />
     <style>
-      nav img:hover {
-        transform: rotate(15deg);
-        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
-      }
       body {
         font-family: "Inter", sans-serif;
-        scroll-behavior: smooth;
       }
       h1,
       h2,
-      h3 {
+      .font-serif {
         font-family: "Playfair Display", serif;
+      }
+
+      /* Animation for the announcement ticker */
+      @keyframes marquee {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+      .animate-marquee {
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee 20s linear infinite;
+      }
+
+      /* Logo hover effect */
+      .intracore-logo-hover {
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      .intracore-logo-hover:hover {
+        transform: scale(1.05);
+        filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
       }
     </style>
   </head>
   <body class="bg-white text-black antialiased">
+    <!-- Announcement Ticker -->
+    <div
+      class="bg-black text-white py-2 overflow-hidden whitespace-nowrap border-b border-black"
+    >
+      <div
+        class="inline-block animate-marquee uppercase text-[9px] font-bold tracking-[0.4em]"
+      >
+        Intracore Pre-Event Registration Now Open — Kashmir Circuit 2026 —
+        Secure Your Spot Today — Global Scholars Championship —
+      </div>
+    </div>
+
     <!-- Responsive Navigation -->
-<nav class="flex justify-between items-center px-6 md:px-16 py-6 border-b border-black bg-white sticky top-0 z-50">
-    <div class="flex items-center space-x-4">
+    <nav
+      class="flex justify-between items-center px-6 md:px-16 py-6 border-b border-black bg-white sticky top-0 z-50"
+    >
+      <div class="flex items-center space-x-4">
         <a href="index.html">
-            <img src="logo.jpg" alt="GSC 2026" class="w-10 h-10 md:w-14 md:h-14 object-cover rounded-full border border-black">
+          <img
+            src="logo.jpg"
+            alt="GSC 2026"
+            class="w-10 h-10 md:w-14 md:h-14 object-cover rounded-full border border-black"
+          />
         </a>
         <div class="flex flex-col">
-            <span class="text-xl md:text-2xl font-bold tracking-tighter uppercase">GSC</span>
-            <span class="text-[8px] md:text-xs font-light text-slate-400 tracking-[0.2em] uppercase">Kashmir Circuit</span>
+          <span
+            class="text-xl md:text-2xl font-bold tracking-tighter uppercase leading-none"
+            >GSC</span
+          >
+          <span
+            class="text-[8px] md:text-xs font-light text-slate-400 tracking-[0.2em] uppercase"
+            >Kashmir Circuit</span
+          >
         </div>
-    </div>
+      </div>
 
-    <!-- Desktop Menu (Hidden on Mobile) -->
-    <div class="hidden md:flex space-x-10 uppercase text-[10px] tracking-[0.3em] font-bold">
-        <a href="index.html" class="hover:text-slate-400 transition">Home</a>
-        <a href="about.html" class="hover:text-slate-400 transition">About</a>
-        
-        <a href="contact.html" class="hover:text-slate-400 transition">Contact</a>
-    </div>
-
-    <!-- Mobile Menu Button (Visible only on Mobile) -->
-    <div class="md:hidden">
-        <button onclick="toggleMenu()" class="text-[10px] font-bold uppercase tracking-widest border border-black px-4 py-2">Menu</button>
-    </div>
-</nav>
-
-<!-- Mobile Overlay (Hidden by default) -->
-<div id="mobileMenu" class="fixed inset-0 bg-white z-[60] hidden flex-col items-center justify-center space-y-8 uppercase tracking-[0.5em] text-lg font-light">
-    <button onclick="toggleMenu()" class="absolute top-8 right-8 text-xs font-bold tracking-widest">[ Close ]</button>
-    <a href="index.html" onclick="toggleMenu()">Home</a>
-    <a href="about.html" onclick="toggleMenu()">About</a>
-  
-    <a href="contact.html" onclick="toggleMenu()">Contact</a>
-</div>
-
-<script>
-function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('hidden');
-    menu.classList.toggle('flex');
-}
-</script>
-    <div
-      class="bg-black text-white text-[10px] uppercase tracking-[0.4em] py-2 text-center font-bold"
-    >
-      Registration for Phase 1 closes in: <span id="timer">--:--:--:--</span>
-    </div>
-
-    <script>
-      // Simple countdown logic
-      const deadline = new Date("June 1, 2026 23:59:59").getTime();
-      setInterval(function () {
-        const now = new Date().getTime();
-        const diff = deadline - now;
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        document.getElementById("timer").innerHTML = days + " Days Remaining";
-      }, 1000);
-    </script>
-
-    <header class="py-32 px-6 md:px-16 text-center border-b border-black">
-      <h1 class="text-6xl md:text-8xl mb-6 italic">
-        Global Scholars' Championship.
-      </h1>
-      <p class="text-xl text-slate-600 mb-12 max-w-2xl mx-auto">
-        The inaugural academic and strategy championship for the bright minds of
-        Jammu & Kashmir.
-      </p>
-      <div class="flex flex-col md:flex-row justify-center gap-6">
-        <a
-          href="school-reg.html"
-          class="bg-black text-white px-10 py-5 font-bold uppercase tracking-widest text-sm hover:invert transition"
-          >Register Institution</a
+      <!-- Desktop Menu -->
+      <div
+        class="hidden md:flex space-x-10 uppercase text-[10px] tracking-[0.3em] font-bold"
+      >
+        <a href="index.html" class="underline underline-offset-8">Home</a>
+        <a href="intracore.html" class="hover:text-slate-400 transition"
+          >Intracore</a
         >
-        <a
-          href="student-reg.html"
-          class="border-2 border-black px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-black hover:text-white transition"
-          >Individual Scholar Entry</a
+        <a href="about.html" class="hover:text-slate-400 transition">About</a>
+
+        <a href="contact.html" class="hover:text-slate-400 transition"
+          >Contact</a
         >
       </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button
+          onclick="toggleMenu()"
+          class="text-[10px] font-bold uppercase tracking-widest border border-black px-4 py-2"
+        >
+          Menu
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Overlay -->
+    <div
+      id="mobileMenu"
+      class="fixed inset-0 bg-white z-[60] hidden flex-col items-center justify-center space-y-8 uppercase tracking-[0.4em] text-lg font-light"
+    >
+      <button
+        onclick="toggleMenu()"
+        class="absolute top-8 right-8 text-xs font-bold tracking-widest"
+      >
+        [ Close ]
+      </button>
+      <a href="index.html" onclick="toggleMenu()">Home</a>
+      <a href="intracore.html" onclick="toggleMenu()">Intracore</a>
+      <a href="about.html" onclick="toggleMenu()">About</a>
+
+      <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    </div>
+
+    <!-- Main Hero Header -->
+    <header
+      class="py-32 px-6 md:px-16 text-center border-b border-black bg-white"
+    >
+      <h1 class="text-6xl md:text-9xl italic mb-8 italic">
+        Global Scholars Championship 2026
+      </h1>
+      <p
+        class="uppercase tracking-[0.5em] text-xs font-bold text-slate-500 mb-12"
+      >
+        Inaugural Edition // Kashmir // 2026
+      </p>
+
+      <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+        <a
+          href="student-reg.html"
+          class="w-full md:w-auto bg-black text-white px-10 py-5 uppercase font-bold text-xs tracking-widest hover:bg-slate-800 transition"
+        >
+          Scholar Entry
+        </a>
+        <a
+          href="intracore.html"
+          class="w-full md:w-auto border border-black text-black px-10 py-5 uppercase font-bold text-xs tracking-widest hover:bg-black hover:text-white transition"
+        >
+          Explore Intracore
+        </a>
+        <a
+          href="school-reg.html"
+          class="w-full md:w-auto border border-slate-300 text-slate-400 px-10 py-5 uppercase font-bold text-xs tracking-widest hover:border-black hover:text-black transition"
+        >
+          School Register
+        </a>
+      </div>
     </header>
+
+    <!-- Intracore Noticeable Logo Section -->
+    <section
+      class="py-24 px-6 md:px-16 border-b border-black bg-slate-50 overflow-hidden"
+    >
+      <div class="flex flex-col items-center text-center">
+        <span
+          class="text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400 mb-12"
+          >The Preliminary Circuit</span
+        >
+
+        <div class="relative mb-8">
+          <!-- image_e4d820.jpg is the Intracore script logo -->
+          <img
+            src="intracore-logo.png"
+            alt="Intracore Logo"
+            class="w-72 md:w-[500px] h-auto intracore-logo-hover"
+          />
+        </div>
+
+        <a
+          href="scholar-reg.html"
+          class="bg-black text-white px-12 py-5 uppercase font-bold text-xs tracking-widest hover:invert transition"
+        >
+          Register for Intracore
+        </a>
+      </div>
+    </section>
 
     <section class="py-20 px-6 md:px-16 grid md:grid-cols-2 gap-16">
       <div>
@@ -210,9 +291,7 @@ function toggleMenu() {
           <section
             id="prizes"
             class="py-24 px-6 md:px-16 border-t border-black bg-slate-50"
-          >
-            
-          </section>
+          ></section>
           <div class="grid md:grid-cols-3 gap-10 bg-black text-white p-10">
             <div class="col-span-1">
               <span class="text-6xl font-bold text-white/20">03</span>
@@ -264,7 +343,10 @@ function toggleMenu() {
                 <li>• Merit Scholarship Certificate</li>
                 <li>• Title of "2026 Global Scholar"</li>
                 <li>• Feature in Championship Press</li>
-                <li>• Cash prize depends on the number of participants. Can vary fron 50,000 INR to 1,00,000 INR </li>
+                <li>
+                  • Cash prize depends on the number of participants. Can vary
+                  fron 50,000 INR to 1,00,000 INR
+                </li>
               </ul>
             </div>
 
@@ -304,26 +386,6 @@ function toggleMenu() {
               Participation Certificates.
             </p>
             <!-- Intracore Pre-Event Section -->
-<section class="bg-slate-50 py-20 px-6 md:px-16 border-b border-black">
-    <div class="max-w-4xl">
-        <span class="bg-black text-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest">Pre-Event Phase</span>
-        <h2 class="text-5xl md:text-7xl italic mt-6 mb-8 font-serif">Intracore.</h2>
-        <p class="text-xl md:text-2xl font-light leading-relaxed mb-10">
-            Before the global stage, comes the internal spark. <strong>Intracore</strong> is our exclusive preliminary circuit designed to sharpen competitive skills and identify top-tier potential within participating institutions.
-        </p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 border-t border-slate-200 pt-10">
-            <div>
-                <h4 class="text-xs font-bold uppercase tracking-widest mb-2">The Objective</h4>
-                <p class="text-sm text-slate-500">Internal evaluation and selection for the GSC Kashmir Circuit.</p>
-            </div>
-            <div>
-                <h4 class="text-xs font-bold uppercase tracking-widest mb-2">Eligibility</h4>
-                <p class="text-sm text-slate-500">Open to all registered scholars prior to the main regional rounds.</p>
-            </div>
-        </div>
-    </div>
-</section>
           </div>
         </div>
       </section>
