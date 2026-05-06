@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intracore Phase Zero | GSC 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/jpeg" href="logo.jpg" />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      h1,
+      h2,
+      .font-serif {
+        font-family: "Playfair Display", serif;
+      }
+
+      /* Animation for logo entry */
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-slide {
+        animation: slideUp 0.8s ease-out forwards;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-black antialiased">
+    <!-- Responsive Navigation -->
+    <nav
+      class="flex justify-between items-center px-6 md:px-16 py-6 border-b border-black bg-white sticky top-0 z-50"
+    >
+      <div class="flex items-center space-x-4">
+        <a href="index.html">
+          <img
+            src="logo.jpg"
+            alt="GSC 2026"
+            class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full border border-black"
+          />
+        </a>
+        <div class="flex flex-col">
+          <span
+            class="text-xl font-bold tracking-tighter uppercase leading-none"
+            >GSC</span
+          >
+          <span
+            class="text-[8px] font-light text-slate-400 tracking-[0.2em] uppercase"
+            >Kashmir Circuit</span
+          >
+        </div>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div
+        class="hidden md:flex space-x-10 uppercase text-[10px] tracking-[0.3em] font-bold"
+      >
+        <a href="index.html" class="hover:text-slate-400 transition">Home</a>
+        <a href="intracore.html" class="underline underline-offset-8"
+          >Intracore</a
+        >
+        <a href="about.html" class="hover:text-slate-400 transition">About</a>
+
+        <a href="contact.html" class="hover:text-slate-400 transition"
+          >Contact</a
+        >
+      </div>
+
+      <div class="md:hidden">
+        <button
+          onclick="toggleMenu()"
+          class="text-[10px] font-bold uppercase tracking-widest border border-black px-4 py-2"
+        >
+          Menu
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Overlay -->
+    <div
+      id="mobileMenu"
+      class="fixed inset-0 bg-white z-[60] hidden flex-col items-center justify-center space-y-8 uppercase tracking-[0.4em] text-lg font-light"
+    >
+      <button
+        onclick="toggleMenu()"
+        class="absolute top-8 right-8 text-xs font-bold"
+      >
+        [ Close ]
+      </button>
+      <a href="index.html" onclick="toggleMenu()">Home</a>
+      <a href="intracore.html" onclick="toggleMenu()">Intracore</a>
+      <a href="about.html" onclick="toggleMenu()">About</a>
+      <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    </div>
+
+    <!-- Hero Header -->
+    <header
+      class="py-24 px-6 md:px-16 bg-slate-50 border-b border-black text-center overflow-hidden"
+    >
+      <div class="animate-slide">
+        <img
+          src="intracore-logo.png"
+          alt="Intracore Logo"
+          class="w-64 md:w-[500px] h-auto mx-auto mb-8 drop-shadow-sm"
+        />
+        <h1 class="text-4xl md:text-6xl italic mb-4">Intracore</h1>
+        <p
+          class="max-w-xl mx-auto text-sm text-slate-500 uppercase tracking-widest leading-loose"
+        >
+          The internal selection circuit designed to identify elite academic
+          potential within participating institutions.
+        </p>
+      </div>
+    </header>
+
+    <!-- Split Registration Section -->
+    <section class="py-20 px-6 md:px-16 border-b border-black">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- Track 01: School Registration -->
+          <div
+            class="group border border-black p-10 flex flex-col justify-between transition hover:bg-black hover:text-white"
+          >
+            <div>
+              <span
+                class="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-400 group-hover:text-slate-500 mb-6 block"
+                >Track 01</span
+              >
+              <h2 class="text-3xl font-serif mb-6">Institutional Host.</h2>
+              <p class="text-sm leading-relaxed mb-10 opacity-70">
+                For School Administrators and Principals to register their
+                campus as an official <strong>Intracore</strong> host site for
+                the Kashmir Circuit 2026.
+              </p>
+            </div>
+            <a
+              href="intracore-school.html"
+              class="block border border-black group-hover:border-white py-4 text-center text-[10px] font-bold uppercase tracking-widest transition"
+            >
+              Register School
+            </a>
+          </div>
+
+          <!-- Track 02: Student Registration -->
+          <div
+            class="group border border-black p-10 flex flex-col justify-between transition hover:bg-black hover:text-white"
+          >
+            <div>
+              <span
+                class="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-400 group-hover:text-slate-500 mb-6 block"
+                >Track 02</span
+              >
+              <h2 class="text-3xl font-serif mb-6">Scholar Enrollment.</h2>
+              <p class="text-sm leading-relaxed mb-10 opacity-70">
+                For students from Class 6 to 12 ready to compete in their
+                school's internal selection phase and earn their seat in the
+                global championship.
+              </p>
+            </div>
+            <a
+              href="intracore-student.html"
+              class="block border border-black group-hover:border-white py-4 text-center text-[10px] font-bold uppercase tracking-widest transition"
+            >
+              Student Enrollment
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="grid grid-cols-1 md:grid-cols-3 border-b border-black">
+      <div class="p-12 border-b md:border-b-0 md:border-r border-black">
+        <h3 class="font-bold text-xs uppercase tracking-widest mb-4">
+          01 / Internal Selection
+        </h3>
+        <p class="text-xs text-slate-500 leading-loose">
+          Schools conduct standardized academic evaluations to select their
+          top-tier delegation.
+        </p>
+      </div>
+      <div class="p-12 border-b md:border-b-0 md:border-r border-black">
+        <h3 class="font-bold text-xs uppercase tracking-widest mb-4">
+          02 / Skills Workshop
+        </h3>
+        <p class="text-xs text-slate-500 leading-loose">
+          Qualifying scholars undergo mentorship focused on collaborative
+          writing and global scholarship.
+        </p>
+      </div>
+      <div class="p-12">
+        <h3 class="font-bold text-xs uppercase tracking-widest mb-4">
+          03 / Regional Entry
+        </h3>
+        <p class="text-xs text-slate-500 leading-loose">
+          Intracore finalists earn official badges for the main Kashmir Circuit
+          Regional Round.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="py-12 px-6 md:px-16 flex flex-col md:flex-row justify-between items-center gap-8"
+    >
+      <div class="flex items-center space-x-4">
+        <img
+          src="logo.jpg"
+          class="w-10 h-10 rounded-full grayscale opacity-50"
+          alt=""
+        />
+        <p
+          class="text-[9px] uppercase tracking-[0.4em] font-bold text-slate-400"
+        >
+          © 2026 GSC Kashmir // Intracore Secretariat
+        </p>
+      </div>
+      <div
+        class="flex space-x-10 uppercase text-[9px] font-bold tracking-[0.2em]"
+      >
+        <a href="contact.html" class="hover:text-slate-400">Support</a>
+        <a
+          href="https://www.instagram.com/gscverse/"
+          class="hover:text-slate-400"
+          >Instagram</a
+        >
+      </div>
+    </footer>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("hidden");
+        menu.classList.toggle("flex");
+      }
+    </script>
+  </body>
+</html>
