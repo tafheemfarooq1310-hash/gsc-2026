@@ -67,16 +67,16 @@
           <img
             src="logo.jpg"
             alt="GSC 2026"
-            class="w-10 h-10 md:w-14 md:h-14 object-cover rounded-full border border-black"
+            class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full border border-black"
           />
         </a>
         <div class="flex flex-col">
           <span
-            class="text-xl md:text-2xl font-bold tracking-tighter uppercase leading-none"
+            class="text-xl font-bold tracking-tighter uppercase leading-none"
             >GSC</span
           >
           <span
-            class="text-[8px] md:text-xs font-light text-slate-400 tracking-[0.2em] uppercase"
+            class="text-[8px] font-light text-slate-400 tracking-[0.2em] uppercase"
             >Kashmir Circuit</span
           >
         </div>
@@ -86,8 +86,8 @@
       <div
         class="hidden md:flex space-x-10 uppercase text-[10px] tracking-[0.3em] font-bold"
       >
-        <a href="index.html" class="underline underline-offset-8">Home</a>
-        <a href="intracore.html" class="hover:text-slate-400 transition"
+        <a href="index.html" class="hover:text-slate-400 transition">Home</a>
+        <a href="intracore.html" class="underline underline-offset-8"
           >Intracore</a
         >
         <a href="about.html" class="hover:text-slate-400 transition">About</a>
@@ -97,7 +97,6 @@
         >
       </div>
 
-      <!-- Mobile Menu Button -->
       <div class="md:hidden">
         <button
           onclick="toggleMenu()"
@@ -111,19 +110,41 @@
     <!-- Mobile Overlay -->
     <div
       id="mobileMenu"
-      class="fixed inset-0 bg-white z-[60] hidden flex-col items-center justify-center space-y-8 uppercase tracking-[0.4em] text-lg font-light"
+      class="fixed inset-0 bg-white z-[100] hidden flex-col items-center justify-center space-y-10 uppercase tracking-[0.4em] text-xl font-light overflow-hidden"
     >
       <button
         onclick="toggleMenu()"
-        class="absolute top-8 right-8 text-xs font-bold tracking-widest"
+        class="absolute top-10 right-8 text-[10px] font-bold tracking-widest border border-black px-4 py-2"
       >
         [ Close ]
       </button>
-      <a href="index.html" onclick="toggleMenu()">Home</a>
-      <a href="intracore.html" onclick="toggleMenu()">Intracore</a>
-      <a href="about.html" onclick="toggleMenu()">About</a>
 
-      <a href="contact.html" onclick="toggleMenu()">Contact</a>
+      <a
+        href="index.html"
+        onclick="toggleMenu()"
+        class="hover:italic transition-all"
+        >Home</a
+      >
+      <a
+        href="intracore.html"
+        onclick="toggleMenu()"
+        class="hover:italic transition-all"
+        >Intracore</a
+      >
+      <a
+        href="about.html"
+        onclick="toggleMenu()"
+        class="hover:italic transition-all"
+        >About</a
+      >
+      <a
+        href="contact.html"
+        onclick="toggleMenu()"
+        class="hover:italic transition-all"
+        >Contact</a
+      >
+
+      <img src="logo.jpg" class="w-12 opacity-20 mt-10 grayscale" alt="" />
     </div>
 
     <!-- Main Hero Header -->
@@ -181,7 +202,7 @@
         </div>
 
         <a
-          href="scholar-reg.html"
+          href="intracore.html  "
           class="bg-black text-white px-12 py-5 uppercase font-bold text-xs tracking-widest hover:invert transition"
         >
           Register for Intracore
@@ -390,5 +411,134 @@
         </div>
       </section>
     </section>
+    <section
+      id="eligibility"
+      class="py-24 px-6 md:px-16 border-t border-black bg-white"
+    >
+      <div class="max-w-6xl mx-auto">
+        <div
+          class="flex flex-col md:flex-row justify-between items-baseline mb-16"
+        >
+          <h2 class="text-5xl font-bold uppercase tracking-tighter">
+            Eligibility
+          </h2>
+          <p
+            class="text-slate-400 uppercase tracking-[0.3em] text-[10px] mt-4 md:mt-0 font-bold"
+          >
+            Kashmir Circuit 2026 Standards
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <div
+            class="p-10 border border-black group hover:bg-black hover:text-white transition-all duration-500"
+          >
+            <div class="flex items-center justify-between mb-8">
+              <h3 class="text-2xl font-serif italic">Scholars</h3>
+              <span
+                class="text-[10px] border border-current px-3 py-1 uppercase tracking-widest"
+                >Individual</span
+              >
+            </div>
+            <ul class="space-y-6 text-sm">
+              <li class="flex items-start">
+                <span class="mr-4 opacity-30 font-bold">01</span>
+                <span
+                  >Open to students currently enrolled in **Class 6 through
+                  Class 12**.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mr-4 opacity-30 font-bold">02</span>
+                <span
+                  >Must be a registered student of a school participating in the
+                  **Intracore Circuit**.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mr-4 opacity-30 font-bold">03</span>
+                <span
+                  >Candidates must demonstrate a baseline proficiency in English
+                  (for the Rhetoric & Writing rounds).</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mr-4 opacity-30 font-bold">04</span>
+                <span
+                  >Any Form of Academic Dishonesty will result in
+                  disqualification.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mr-4 opacity-30 font-bold">05</span>
+                <span
+                  >Need proof of current class in which the student is
+                  enrolled.</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="p-10 border border-black group hover:bg-black hover:text-white transition-all duration-500"
+          >
+            <div class="flex items-center justify-between mb-8">
+              <h3 class="text-2xl font-serif italic">Institutions</h3>
+              <span
+                class="text-[10px] border border-current px-3 py-1 uppercase tracking-widest"
+                >Host</span
+              >
+            </div>
+            <ul class="space-y-6 text-sm">
+              <li class="flex items-start">
+                <span class="mr-4 opacity-30 font-bold">01</span>
+                <span
+                  >Recognized educational institutions within the **Kashmir
+                  Division**.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mr-4 opacity-30 font-bold">02</span>
+                <span
+                  >Ability to provide a hall/classroom for the **Phase 1:
+                  Knowledge Grid** assessment.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mr-4 opacity-30 font-bold">03</span>
+                <span
+                  >Appointment of an official **Faculty Coordinator** to liaison
+                  with the GSC Secretariat.</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-12 p-8 bg-slate-50 border border-slate-200 text-center">
+          <p
+            class="text-[11px] uppercase tracking-widest text-slate-500 leading-relaxed"
+          >
+            Students whose schools are not yet registered may apply as
+            **Independent Scholars**, subject to a separate screening process by
+            the GSC Board.
+          </p>
+        </div>
+      </div>
+    </section>
   </body>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      if (menu.classList.contains("hidden")) {
+        menu.classList.replace("hidden", "flex");
+        // Prevent background scrolling when menu is open
+        document.body.style.overflow = "hidden";
+      } else {
+        menu.classList.replace("flex", "hidden");
+        // Restore scrolling
+        document.body.style.overflow = "auto";
+      }
+    }
+  </script>
 </html>
