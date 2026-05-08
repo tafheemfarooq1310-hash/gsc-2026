@@ -3,61 +3,185 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Intracore Phase Zero | GSC 2026</title>
+
+    <title>Intracore Registration | Kashmir Circuit 2026</title>
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Playfair+Display:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/jpeg" href="logo.jpg" />
+
+    <link rel="icon" type="image/png" href="intracore-logo.png" />
+
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+        background: #ffffff;
       }
-      h1,
-      h2,
+
       .font-serif {
         font-family: "Playfair Display", serif;
       }
 
-      /* Animation for logo entry */
-      @keyframes slideUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
+      /* Animated background */
+      .hero-bg {
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(0, 0, 0, 0.06),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(0, 0, 0, 0.04),
+            transparent 30%
+          );
+      }
+
+      /* Floating logo */
+      .floating-logo {
+        animation: floatLogo 5s ease-in-out infinite;
+        filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.12));
+      }
+
+      @keyframes floatLogo {
+        0% {
+          transform: translateY(0px);
         }
+
+        50% {
+          transform: translateY(-10px);
+        }
+
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      /* Fade animation */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 1s ease forwards;
+      }
+
+      .fade-up-delay {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 1s ease forwards 0.2s;
+      }
+
+      .fade-up-delay-2 {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 1s ease forwards 0.4s;
+      }
+
+      @keyframes fadeUp {
         to {
           opacity: 1;
           transform: translateY(0);
         }
       }
-      .animate-slide {
-        animation: slideUp 0.8s ease-out forwards;
+
+      /* Placeholder fix */
+      input::placeholder {
+        font-size: 16px;
+        color: #94a3b8;
+        font-style: italic;
+      }
+
+      /* Input focus line */
+      .input-line {
+        width: 0;
+        transition: width 0.35s ease;
+      }
+
+      .group:focus-within .input-line {
+        width: 100%;
+      }
+
+      /* Card glow */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      /* Button hover */
+      .btn-hover {
+        transition: all 0.3s ease;
+      }
+
+      .btn-hover:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Mobile menu animation */
+      #mobileMenu {
+        transition: all 0.4s ease;
+      }
+
+      .menu-show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .menu-hide {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      /* Success message */
+      #successMessage {
+        display: none;
       }
     </style>
   </head>
-  <body class="bg-white text-black antialiased">
-    <!-- Responsive Navigation -->
+
+  <body class="text-black antialiased selection:bg-black selection:text-white">
+    <!-- NAVBAR -->
     <nav
-      class="flex justify-between items-center px-6 md:px-16 py-6 border-b border-black bg-white sticky top-0 z-50"
+      class="flex justify-between items-center px-6 md:px-16 py-6 border-b border-black bg-white/90 backdrop-blur sticky top-0 z-50"
     >
+      <!-- Logo -->
       <div class="flex items-center space-x-4">
         <a href="index.html">
           <img
             src="logo.jpg"
-            alt="GSC 2026"
-            class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full border border-black"
+            alt="Intracore"
+            class="w-12 md:w-16 floating-logo"
           />
         </a>
+
         <div class="flex flex-col">
           <span
-            class="text-xl font-bold tracking-tighter uppercase leading-none"
-            >GSC</span
+            class="text-xl md:text-2xl font-black tracking-tighter uppercase leading-none"
           >
+            GSC
+          </span>
+
           <span
-            class="text-[8px] font-light text-slate-400 tracking-[0.2em] uppercase"
-            >Kashmir Circuit</span
+            class="text-[9px] md:text-xs font-light text-slate-500 tracking-[0.3em] uppercase"
           >
+            Kashmir Circuit
+          </span>
         </div>
       </div>
 
@@ -65,184 +189,215 @@
       <div
         class="hidden md:flex space-x-10 uppercase text-[10px] tracking-[0.3em] font-bold"
       >
-        <a href="index.html" class="hover:text-slate-400 transition">Home</a>
-        <a href="intracore.html" class="underline underline-offset-8"
-          >Intracore</a
-        >
-        <a href="about.html" class="hover:text-slate-400 transition">About</a>
+        <a href="index.html" class="hover:text-slate-400 transition"> Home </a>
 
-        <a href="contact.html" class="hover:text-slate-400 transition"
-          >Contact</a
-        >
+        <a href="intracore.html" class="underline underline-offset-8">
+          Intracore
+        </a>
+
+        <a href="about.html" class="hover:text-slate-400 transition"> About </a>
+
+        <a href="contact.html" class="hover:text-slate-400 transition">
+          Contact
+        </a>
       </div>
 
-      <div class="md:hidden">
-        <button
-          onclick="toggleMenu()"
-          class="text-[10px] font-bold uppercase tracking-widest border border-black px-4 py-2"
-        >
-          Menu
-        </button>
-      </div>
+      <!-- Mobile Button -->
+      <button
+        id="menuBtn"
+        class="md:hidden text-[10px] font-bold uppercase border border-black px-4 py-2"
+      >
+        Menu
+      </button>
     </nav>
 
-    <!-- Mobile Overlay -->
+    <!-- MOBILE MENU -->
     <div
       id="mobileMenu"
-      class="fixed inset-0 bg-white z-[60] hidden flex-col items-center justify-center space-y-8 uppercase tracking-[0.4em] text-lg font-light"
+      class="fixed inset-0 bg-white z-[100] menu-hide flex flex-col items-center justify-center space-y-10 uppercase tracking-[0.4em] text-xl font-light"
     >
       <button
-        onclick="toggleMenu()"
-        class="absolute top-8 right-8 text-xs font-bold"
+        id="closeBtn"
+        class="absolute top-10 right-8 text-[10px] font-bold border border-black px-4 py-2"
       >
         [ Close ]
       </button>
-      <a href="index.html" onclick="toggleMenu()">Home</a>
-      <a href="intracore.html" onclick="toggleMenu()">Intracore</a>
-      <a href="about.html" onclick="toggleMenu()">About</a>
-      <a href="contact.html" onclick="toggleMenu()">Contact</a>
+
+      <a href="index.html">Home</a>
+      <a href="intracore.html">Intracore</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
 
-    <!-- Hero Header -->
+    <!-- HERO -->
     <header
-      class="py-24 px-6 md:px-16 bg-slate-50 border-b border-black text-center overflow-hidden"
+      class="hero-bg py-24 px-6 md:px-16 border-b border-black overflow-hidden"
     >
-      <div class="animate-slide">
-        <img
-          src="intracore-logo.png"
-          alt="Intracore Logo"
-          class="w-64 md:w-[500px] h-auto mx-auto mb-8 drop-shadow-sm"
-        />
-        <h1 class="text-4xl md:text-6xl italic mb-4">Intracore</h1>
-        <p
-          class="max-w-xl mx-auto text-sm text-slate-500 uppercase tracking-widest leading-loose"
-        >
-          The internal selection circuit designed to identify elite academic
-          potential within participating institutions.
-        </p>
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <!-- Left -->
+        <div>
+          <p
+            class="uppercase tracking-[0.5em] text-[10px] font-bold text-slate-500 mb-6 fade-up"
+          >
+            Global Scholars Championship 2026
+          </p>
+
+          <h1
+            class="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-8 fade-up-delay"
+          >
+            Intracore
+          </h1>
+
+          <p
+            class="font-serif italic text-2xl md:text-3xl text-slate-600 mb-10 fade-up-delay-2"
+          >
+            Registration Portal — Phase 01
+          </p>
+
+          <a
+            href="intracore-reg.html"
+            class="inline-block bg-black text-white px-10 py-5 uppercase tracking-[0.3em] text-[10px] font-bold btn-hover"
+          >
+            Register Now
+          </a>
+        </div>
+
+        <!-- Right -->
+        <div class="flex justify-center">
+          <img
+            src="intracore-logo.png"
+            alt="Intracore Logo"
+            class="w-[320px] md:w-[520px] floating-logo"
+          />
+        </div>
       </div>
     </header>
 
-    <!-- Split Registration Section -->
-    <section class="py-20 px-6 md:px-16 border-b border-black">
-      <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <!-- Track 01: School Registration -->
-          <div
-            class="group border border-black p-10 flex flex-col justify-between transition hover:bg-black hover:text-white"
-          >
-            <div>
-              <span
-                class="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-400 group-hover:text-slate-500 mb-6 block"
-                >Track 01</span
-              >
-              <h2 class="text-3xl font-serif mb-6">Institutional Host.</h2>
-              <p class="text-sm leading-relaxed mb-10 opacity-70">
-                For School Administrators and Principals to register their
-                campus as an official <strong>Intracore</strong> host site for
-                the Kashmir Circuit 2026.
-              </p>
-            </div>
-            <a
-              href="intracore-school.html"
-              class="block border border-black group-hover:border-white py-4 text-center text-[10px] font-bold uppercase tracking-widest transition"
-            >
-              Register School
-            </a>
-          </div>
+    <!-- INFO SECTION -->
+    <section
+      class="py-20 px-6 md:px-16 border-b border-black bg-black text-white"
+    >
+      <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 text-center">
+        <div class="glass-card rounded-3xl p-10 text-black">
+          <h3 class="text-4xl font-black mb-4">20</h3>
+          <p class="uppercase tracking-[0.3em] text-xs font-bold">
+            Students Per School
+          </p>
+        </div>
 
-          <!-- Track 02: Student Registration -->
-          <div
-            class="group border border-black p-10 flex flex-col justify-between transition hover:bg-black hover:text-white"
-          >
-            <div>
-              <span
-                class="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-400 group-hover:text-slate-500 mb-6 block"
-                >Track 02</span
-              >
-              <h2 class="text-3xl font-serif mb-6">Scholar Enrollment.</h2>
-              <p class="text-sm leading-relaxed mb-10 opacity-70">
-                For students from Class 6 to 12 ready to compete in their
-                school's internal selection phase and earn their seat in the
-                global championship.
-              </p>
-            </div>
-            <a
-              href="intracore-student.html"
-              class="block border border-black group-hover:border-white py-4 text-center text-[10px] font-bold uppercase tracking-widest transition"
-            >
-              Student Enrollment
-            </a>
-          </div>
+        <div class="glass-card rounded-3xl p-10 text-black">
+          <h3 class="text-4xl font-black mb-4">5</h3>
+          <p class="uppercase tracking-[0.3em] text-xs font-bold">
+            Final Scholars
+          </p>
+        </div>
+
+        <div class="glass-card rounded-3xl p-10 text-black">
+          <h3 class="text-4xl font-black mb-4">2026</h3>
+          <p class="uppercase tracking-[0.3em] text-xs font-bold">
+            Kashmir Circuit
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- Details Section -->
-    <section class="grid grid-cols-1 md:grid-cols-3 border-b border-black">
-      <div class="p-12 border-b md:border-b-0 md:border-r border-black">
-        <h3 class="font-bold text-xs uppercase tracking-widest mb-4">
-          01 / Internal Selection
-        </h3>
-        <p class="text-xs text-slate-500 leading-loose">
-          Schools conduct standardized academic evaluations to select their
-          top-tier delegation.
-        </p>
-      </div>
-      <div class="p-12 border-b md:border-b-0 md:border-r border-black">
-        <h3 class="font-bold text-xs uppercase tracking-widest mb-4">
-          02 / Skills Workshop
-        </h3>
-        <p class="text-xs text-slate-500 leading-loose">
-          Qualifying scholars undergo mentorship focused on collaborative
-          writing and global scholarship.
-        </p>
-      </div>
-      <div class="p-12">
-        <h3 class="font-bold text-xs uppercase tracking-widest mb-4">
-          03 / Regional Entry
-        </h3>
-        <p class="text-xs text-slate-500 leading-loose">
-          Intracore finalists earn official badges for the main Kashmir Circuit
-          Regional Round.
-        </p>
-      </div>
-    </section>
+    <!-- FORM -->
+    <section id="register" class="py-24 px-6 md:px-16 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-20 text-center">
+          <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-6">
+            Scholar Registration
+          </h2>
 
-    <!-- Footer -->
-    <footer
-      class="py-12 px-6 md:px-16 flex flex-col md:flex-row justify-between items-center gap-8"
-    >
-      <div class="flex items-center space-x-4">
-        <img
-          src="logo.jpg"
-          class="w-10 h-10 rounded-full grayscale opacity-50"
-          alt=""
-        />
-        <p
-          class="text-[9px] uppercase tracking-[0.4em] font-bold text-slate-400"
-        >
-          © 2026 GSC Kashmir // Intracore Secretariat
-        </p>
-      </div>
-      <div
-        class="flex space-x-10 uppercase text-[9px] font-bold tracking-[0.2em]"
+         
+        
+
+         
+    <!-- FOOTER -->
+    <footer class="py-12 border-t border-black text-center bg-slate-50">
+      <img
+        src="intracore-logo.png"
+        class="w-24 mx-auto mb-6 opacity-80"
+        alt="Logo"
+      />
+
+      <p
+        class="text-[10px] uppercase tracking-[0.3em] font-bold text-slate-500"
       >
-        <a href="contact.html" class="hover:text-slate-400">Support</a>
-        <a
-          href="https://www.instagram.com/gscverse/"
-          class="hover:text-slate-400"
-          >Instagram</a
-        >
-      </div>
+        © 2026 Global Scholars Championship — Kashmir Circuit
+      </p>
     </footer>
 
+    <!-- Hidden iframe -->
+    <iframe name="hidden_iframe" style="display: none"></iframe>
+
+    <!-- SCRIPT -->
     <script>
-      function toggleMenu() {
-        const menu = document.getElementById("mobileMenu");
-        menu.classList.toggle("hidden");
-        menu.classList.toggle("flex");
-      }
+      // MOBILE MENU
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuBtn = document.getElementById("menuBtn");
+      const closeBtn = document.getElementById("closeBtn");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("menu-hide");
+        mobileMenu.classList.add("menu-show");
+        document.body.style.overflow = "hidden";
+      });
+
+      closeBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("menu-show");
+        mobileMenu.classList.add("menu-hide");
+        document.body.style.overflow = "auto";
+      });
+
+      // FORM SUBMIT PROTECTION
+      const form = document.getElementById("registrationForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const successMessage = document.getElementById("successMessage");
+
+      let submitted = false;
+
+      form.addEventListener("submit", function () {
+        if (submitted) {
+          return false;
+        }
+
+        submitted = true;
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "Submitting...";
+
+        submitBtn.classList.add("opacity-50", "cursor-not-allowed");
+
+        setTimeout(() => {
+          successMessage.style.display = "block";
+          form.reset();
+        }, 2000);
+      });
+
+      // SCROLL REVEAL
+      const revealElements = document.querySelectorAll(
+        ".fade-up, .fade-up-delay, .fade-up-delay-2",
+      );
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0px)";
+            }
+          });
+        },
+        {
+          threshold: 0.2,
+        },
+      );
+
+      revealElements.forEach((el) => {
+        observer.observe(el);
+      });
     </script>
   </body>
 </html>
+
