@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSC 2026 | Global Scholars Championship</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/jpeg" href="logo.jpg" />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      h1,
+      h2,
+      .font-serif {
+        font-family: "Playfair Display", serif;
+      }
+
+      /* Animation for the announcement ticker */
+      @keyframes marquee {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+      .animate-marquee {
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee 20s linear infinite;
+      }
+
+      /* Logo hover effect */
+      .intracore-logo-hover {
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      .intracore-logo-hover:hover {
+        transform: scale(1.05);
+        filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+      }
+    </style>
+  </head>
+  <body class="bg-white text-black antialiased">
+    <!-- Announcement Ticker -->
+    <div
+      class="bg-black text-white py-2 overflow-hidden whitespace-nowrap border-b border-black"
+    >
+      <div
+        class="inline-block animate-marquee uppercase text-[9px] font-bold tracking-[0.4em]"
+      >
+        Intracore Pre-Event Registration Now Open — Kashmir Circuit 2026 —
+        Secure Your Spot Today — Global Scholars Championship —
+      </div>
+    </div>
+
+    <!-- Responsive Navigation -->
+    <nav
+      class="flex justify-between items-center px-6 md:px-16 py-6 border-b border-black bg-white sticky top-0 z-50"
+    >
+      <div class="flex items-center space-x-4">
+        <a href="index.html">
+          <img
+            src="logo.jpg"
+            alt="GSC 2026"
+            class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full border border-black"
+          />
+        </a>
+        <div class="flex flex-col">
+          <span
+            class="text-xl font-bold tracking-tighter uppercase leading-none"
+            >GSC</span
+          >
+          <span
+            class="text-[8px] font-light text-slate-400 tracking-[0.2em] uppercase"
+            >Kashmir Circuit</span
+          >
+        </div>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div
+        class="hidden md:flex space-x-10 uppercase text-[10px] tracking-[0.3em] font-bold"
+      >
+        <a href="index.html" class="hover:text-slate-400 transition">Home</a>
+        <a href="intracore.html" class="underline underline-offset-8"
+          >Intracore</a
+        >
+        <a href="about.html" class="hover:text-slate-400 transition">About</a>
+
+        <a href="contact.html" class="hover:text-slate-400 transition"
+          >Contact</a
+        >
+        <a href="terms.html" class="hover:text-slate-400 transition">
+          Terms & Conditions
+        </a>
+      </div>
+
+      <div class="md:hidden">
+        <button
+          onclick="toggleMenu()"
+          class="text-[10px] font-bold uppercase tracking-widest border border-black px-4 py-2"
+        >
+          Menu
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Overlay -->
+    <div
+      id="mobileMenu"
+      class="fixed inset-0 bg-white z-[100] hidden flex-col items-center justify-center space-y-10 uppercase tracking-[0.4em] text-xl font-light overflow-hidden"
+    >
+      <button
+        onclick="toggleMenu()"
+        class="absolute top-10 right-8 text-[10px] font-bold tracking-widest border border-black px-4 py-2"
+      >
+        [ Close ]
+      </button>
+
+      <a
+        href="index.html"
+        onclick="toggleMenu()"
+        class="hover:italic transition-all"
+        >Home</a
+      >
+      <a
+        href="intracore.html"
+        onclick="toggleMenu()"
+        class="hover:italic transition-all"
+        >Intracore</a
+      >
+      <a
+        href="about.html"
+        onclick="toggleMenu()"
+        class="hover:italic transition-all"
+        >About</a
+      >
+      <a
+        href="contact.html"
+        onclick="toggleMenu()"
+        class="hover:italic transition-all"
+        >Contact</a
+      >
+      <a href="terms.html">Terms & Conditions</a>
+
+      <img src="logo.jpg" class="w-12 opacity-20 mt-10 grayscale" alt="" />
+    </div>
+
+    <!-- Main Hero Header -->
+    <header
+      class="py-32 px-6 md:px-16 text-center border-b border-black bg-white"
+    >
+      <h1 class="text-6xl md:text-9xl italic mb-8 italic">
+        Global Scholars Championship 2026
+      </h1>
+      <p
+        class="uppercase tracking-[0.5em] text-xs font-bold text-slate-500 mb-12"
+      >
+        Inaugural Edition // Kashmir // 2026
+      </p>
+
+      <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+        <a
+          href="student-reg.html"
+          class="w-full md:w-auto bg-black text-white px-10 py-5 uppercase font-bold text-xs tracking-widest hover:bg-slate-800 transition"
+        >
+          Scholar Entry
+        </a>
+        <a
+          href="intracore.html"
+          class="w-full md:w-auto border border-black text-black px-10 py-5 uppercase font-bold text-xs tracking-widest hover:bg-black hover:text-white transition"
+        >
+          Explore Intracore
+        </a>
+        <a
+          href="school-reg.html"
+          class="w-full md:w-auto border border-slate-300 text-slate-400 px-10 py-5 uppercase font-bold text-xs tracking-widest hover:border-black hover:text-black transition"
+        >
+          School Register
+        </a>
+      </div>
+    </header>
+
+    <!-- Intracore Noticeable Logo Section -->
+    <section
+      class="py-24 px-6 md:px-16 border-b border-black bg-slate-50 overflow-hidden"
+    >
+      <div class="flex flex-col items-center text-center">
+        <span
+          class="text-[10px] font-bold uppercase tracking-[0.5em] text-slate-400 mb-12"
+          >The Preliminary Circuit</span
+        >
+
+        <div class="relative mb-8">
+          <!-- image_e4d820.jpg is the Intracore script logo -->
+          <img
+            src="intracore-logo.png"
+            alt="Intracore Logo"
+            class="w-72 md:w-[500px] h-auto intracore-logo-hover"
+          />
+        </div>
+
+        <a
+          href="intracore.html  "
+          class="bg-black text-white px-12 py-5 uppercase font-bold text-xs tracking-widest hover:invert transition"
+        >
+          Register for Intracore
+        </a>
+      </div>
+    </section>
+
+    <section class="py-20 px-6 md:px-16 grid md:grid-cols-2 gap-16">
+      <div>
+        <h2 class="text-4xl mb-6">Phase 1: Intra-School</h2>
+        <p class="text-slate-600 italic">Day 01 — At Your Campus</p>
+        <ul class="mt-4 space-y-4">
+          <li><strong>Round 1:</strong> Logic & Knowledge Quiz</li>
+          <li><strong>Round 2:</strong> Collaborative Academic Writing</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-4xl mb-6">Phase 2: Inter-School</h2>
+        <p class="text-slate-600 italic">Day 02 — Grand Finals</p>
+        <ul class="mt-4 space-y-4">
+          <li><strong>Strategy:</strong> Monopoly & UNO Elimination</li>
+          <li><strong>Rhetoric:</strong> Impromptu Speech Test</li>
+        </ul>
+      </div>
+    </section>
+    <section
+      id="roadmap"
+      class="py-24 px-6 md:px-16 border-t border-black bg-white"
+    >
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-5xl mb-16 tracking-tighter uppercase font-bold">
+          The Roadmap
+        </h2>
+
+        <div class="space-y-20">
+          <div class="grid md:grid-cols-3 gap-10">
+            <div class="col-span-1">
+              <span class="text-6xl font-light text-slate-300">01</span>
+              <h3 class="text-2xl font-bold uppercase mt-2">
+                Intra-School Elimination
+              </h3>
+            </div>
+            <div class="col-span-2 border-l-2 border-black pl-8">
+              <div class="mb-8">
+                <h4 class="font-bold text-lg mb-2 underline underline-offset-4">
+                  Round 1: The Knowledge Grid
+                </h4>
+                <p class="text-slate-600">
+                  A 45-minute logic and general knowledge assessment. 20
+                  students from each school enter; only the top 10 scoring
+                  students move to the writing round.
+                </p>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg mb-2 underline underline-offset-4">
+                  Round 2: Collaborative Rhetoric
+                </h4>
+                <p class="text-slate-600">
+                  The 10 qualifiers form 5 pairs. They are given a global crisis
+                  prompt and must draft a 500-word resolution. The top 5
+                  individual scholars from this phase qualify for the
+                  Inter-School Finals.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-10">
+            <div class="col-span-1">
+              <span class="text-6xl font-light text-slate-300">02</span>
+              <h3 class="text-2xl font-bold uppercase mt-2">
+                Inter-School Championship
+              </h3>
+            </div>
+            <div class="col-span-2 border-l-2 border-black pl-8">
+              <div class="mb-8">
+                <h4 class="font-bold text-lg mb-2 underline underline-offset-4">
+                  Round 3: Monopoly Strategy
+                </h4>
+                <p class="text-slate-600">
+                  All 50 finalists (5 from each of the 10 schools) compete on 12
+                  boards. This tests resource management and negotiation. Only
+                  25 survive.
+                </p>
+              </div>
+              <div class="mb-8">
+                <h4 class="font-bold text-lg mb-2 underline underline-offset-4">
+                  Round 4: The Speech Test
+                </h4>
+                <p class="text-slate-600">
+                  The "hot seat" round. Scholars get 2 minutes to prepare a
+                  3-minute speech on a surprise topic. Judges select the top 12
+                  based on delivery and logic.
+                </p>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg mb-2 underline underline-offset-4">
+                  Round 5: UNO Tactical
+                </h4>
+                <p class="text-slate-600">
+                  A high-speed elimination using UNO card logic. 3 groups of 4
+                  players. The winner from each group enters the Grand Finale.
+                </p>
+              </div>
+            </div>
+          </div>
+          <section
+            id="prizes"
+            class="py-24 px-6 md:px-16 border-t border-black bg-slate-50"
+          ></section>
+          <div class="grid md:grid-cols-3 gap-10 bg-black text-white p-10">
+            <div class="col-span-1">
+              <span class="text-6xl font-bold text-white/20">03</span>
+              <h3 class="text-2xl font-bold uppercase mt-2 italic">
+                The Grand Finale
+              </h3>
+            </div>
+            <div class="col-span-2 border-l-2 border-white/30 pl-8">
+              <h4 class="font-bold text-xl mb-4 italic">
+                The Champion's Choice
+              </h4>
+              <p class="text-slate-400 leading-relaxed">
+                The final 3 scholars stand on stage. They must reach a consensus
+                on the final game: **Monopoly (Long Game)** or **UNO (Speed
+                Game)**. One game, one winner, one Global Scholar Champion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section
+        id="prizes"
+        class="py-24 px-6 md:px-16 border-t border-black bg-slate-50"
+      >
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-5xl font-bold uppercase tracking-tighter">
+              Honors & Recognition
+            </h2>
+            <p class="text-slate-500 mt-4 italic">
+              Rewarding intelligence, strategy, and academic excellence.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-black text-white p-10 relative overflow-hidden">
+              <div
+                class="absolute -right-4 -top-4 text-8xl opacity-10 font-bold italic text-white"
+              >
+                01
+              </div>
+              <h3
+                class="text-xs uppercase tracking-[0.4em] font-bold text-slate-400 mb-2"
+              >
+                Grand Champion
+              </h3>
+              <p class="text-3xl font-bold mb-6 italic">The GSC Gold Trophy</p>
+              <ul class="text-sm space-y-3 text-slate-300">
+                <li>• Merit Scholarship Certificate</li>
+                <li>• Title of "2026 Global Scholar"</li>
+                <li>• Feature in Championship Press</li>
+                <li>
+                  • Cash prize depends on the number of participants. Can vary
+                  fron 50,000 INR to 1,00,000 INR
+                </li>
+              </ul>
+            </div>
+
+            <div class="border-2 border-black p-10 bg-white">
+              <h3
+                class="text-xs uppercase tracking-[0.4em] font-bold text-slate-400 mb-2"
+              >
+                First Runner Up
+              </h3>
+              <p class="text-3xl font-bold mb-6 italic">Silver Medalist</p>
+              <ul class="text-sm space-y-3 text-slate-600">
+                <li>• Academic Excellence Plaque</li>
+                <li>• GSC Distinction Certificate</li>
+                <li>• Strategic Gaming Honors</li>
+              </ul>
+            </div>
+
+            <div class="border-2 border-black p-10 bg-white">
+              <h3
+                class="text-xs uppercase tracking-[0.4em] font-bold text-slate-400 mb-2"
+              >
+                Top Institution
+              </h3>
+              <p class="text-3xl font-bold mb-6 italic">Shield of Honor</p>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Awarded to the school with the highest collective scholar
+                performance across both Phase 1 and Phase 2.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-12 text-center">
+            <p
+              class="text-[10px] uppercase font-bold tracking-widest text-slate-400"
+            >
+              All Phase 2 Finalists will receive "The Global Scholar Badge" &
+              Participation Certificates.
+            </p>
+            <!-- Intracore Pre-Event Section -->
+          </div>
+        </div>
+      </section>
+    </section>
+    <section
+      id="eligibility"
+      class="py-24 px-6 md:px-16 border-t border-black bg-white"
+    >
+      <div class="max-w-6xl mx-auto">
+        <div
+          class="flex flex-col md:flex-row justify-between items-baseline mb-16"
+        >
+          <h2 class="text-5xl font-bold uppercase tracking-tighter">
+            Eligibility
+          </h2>
+          <p
+            class="text-slate-400 uppercase tracking-[0.3em] text-[10px] mt-4 md:mt-0 font-bold"
+          >
+            Kashmir Circuit 2026 Standards
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <div
+            class="p-10 border border-black group hover:bg-black hover:text-white transition-all duration-500"
+          >
+            <div class="flex items-center justify-between mb-8">
+              <h3 class="text-2xl font-serif italic">Scholars</h3>
+              <span
+                class="text-[10px] border border-current px-3 py-1 uppercase tracking-widest"
+                >Individual</span
+              >
+            </div>
+            <ul class="space-y-6 text-sm">
+              <li class="flex items-start">
+                <span class="mr-4 opacity-30 font-bold">01</span>
+                <span
+                  >Open to students currently enrolled in **Class 6 through
+                  Class 12**.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mr-4 opacity-30 font-bold">02</span>
+                <span
+                  >Must be a registered student of a school participating in the
+                  **Intracore Circuit**.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mr-4 opacity-30 font-bold">03</span>
+                <span
+                  >Candidates must demonstrate a baseline proficiency in English
+                  (for the Rhetoric & Writing rounds).</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mr-4 opacity-30 font-bold">04</span>
+                <span
+                  >Any Form of Academic Dishonesty will result in
+                  disqualification.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mr-4 opacity-30 font-bold">05</span>
+                <span
+                  >Need proof of current class in which the student is
+                  enrolled.</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="p-10 border border-black group hover:bg-black hover:text-white transition-all duration-500"
+          >
+            <div class="flex items-center justify-between mb-8">
+              <h3 class="text-2xl font-serif italic">Institutions</h3>
+              <span
+                class="text-[10px] border border-current px-3 py-1 uppercase tracking-widest"
+                >Host</span
+              >
+            </div>
+            <ul class="space-y-6 text-sm">
+              <li class="flex items-start">
+                <span class="mr-4 opacity-30 font-bold">01</span>
+                <span
+                  >Recognized educational institutions within the **Kashmir
+                  Division**.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mr-4 opacity-30 font-bold">02</span>
+                <span
+                  >Ability to provide a hall/classroom for the **Phase 1:
+                  Knowledge Grid** assessment.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mr-4 opacity-30 font-bold">03</span>
+                <span
+                  >Appointment of an official **Faculty Coordinator** to liaison
+                  with the GSC Secretariat.</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-12 p-8 bg-slate-50 border border-slate-200 text-center">
+          <p
+            class="text-[11px] uppercase tracking-widest text-slate-500 leading-relaxed"
+          >
+            Students whose schools are not yet registered may apply as
+            **Independent Scholars**, subject to a separate screening process by
+            the GSC Board.
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      if (menu.classList.contains("hidden")) {
+        menu.classList.replace("hidden", "flex");
+        // Prevent background scrolling when menu is open
+        document.body.style.overflow = "hidden";
+      } else {
+        menu.classList.replace("flex", "hidden");
+        // Restore scrolling
+        document.body.style.overflow = "auto";
+      }
+    }
+  </script>
+</html>

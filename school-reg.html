@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Institutional Registration | GSC 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #ffffff;
+      }
+      h1 {
+        font-family: "Playfair Display", serif;
+      }
+
+      /* Minimalist Brutalist Inputs */
+      .input-field {
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid #000;
+        padding: 1.25rem 0;
+        font-size: 1.1rem;
+        font-weight: 300;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        border-radius: 0;
+        background: transparent;
+      }
+      .input-field:focus {
+        outline: none;
+        border-bottom-width: 4px;
+        background-color: #fafafa;
+        padding-left: 0.75rem;
+      }
+      .input-field::placeholder {
+        color: #e2e8f0;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        font-size: 0.75rem;
+      }
+
+      /* Custom Checkbox */
+      .checkbox-wrapper {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        cursor: pointer;
+      }
+      .checkbox-wrapper input {
+        display: none;
+      }
+      .custom-box {
+        min-width: 20px;
+        height: 20px;
+        border: 2px solid black;
+        margin-top: 4px;
+        position: relative;
+        transition: all 0.2s;
+      }
+      .checkbox-wrapper input:checked + .custom-box {
+        background: black;
+      }
+      .checkbox-wrapper input:checked + .custom-box::after {
+        content: "✓";
+        color: white;
+        position: absolute;
+        font-size: 14px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      /* Transitions */
+      .fade-out {
+        opacity: 0;
+        transform: translateY(15px);
+        transition: 0.4s ease-in;
+      }
+      .fade-in {
+        opacity: 1;
+        transform: translateY(0);
+        transition: 0.6s ease-out;
+      }
+
+      .loader {
+        width: 18px;
+        height: 18px;
+        border: 2px solid white;
+        border-top: 2px solid transparent;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        display: inline-block;
+      }
+      @keyframes spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body class="text-black antialiased selection:bg-black selection:text-white">
+    <!-- NAVIGATION -->
+    <nav
+      class="flex justify-between items-center px-6 md:px-16 py-8 border-b border-black bg-white sticky top-0 z-50"
+    >
+      <div class="flex items-center space-x-4">
+        <a href="index.html">
+          <img
+            src="logo.jpg"
+            alt="GSC 2026"
+            class="w-12 h-12 md:w-14 md:h-14 object-cover rounded-full border border-black"
+          />
+        </a>
+        <div class="flex flex-col">
+          <span
+            class="text-2xl font-bold tracking-tighter uppercase leading-none"
+            >GSC</span
+          >
+          <span
+            class="text-[10px] font-light text-slate-400 tracking-widest uppercase"
+            >Kashmir 2026</span
+          >
+        </div>
+      </div>
+
+      <div
+        class="hidden md:flex space-x-12 uppercase text-[10px] tracking-[0.3em] font-bold"
+      >
+        <a href="index.html" class="hover:opacity-50 transition">Home</a>
+        <a href="about.html" class="hover:opacity-50 transition">About</a>
+        <a href="intracore.html" class="hover:opacity-50 transition"
+          >Intracore</a
+        >
+        <a href="contact.html" class="hover:opacity-50 transition">Contact</a>
+        <a href="terms.html" class="hover:opacity-50 transition">
+          Terms & Conditions
+        </a>
+      </div>
+
+      <button
+        id="menuBtn"
+        class="md:hidden text-[10px] font-bold uppercase border border-black px-4 py-2"
+      >
+        Menu
+      </button>
+    </nav>
+
+    <!-- MOBILE OVERLAY -->
+    <div
+      id="mobileMenu"
+      class="fixed inset-0 bg-white z-[100] hidden flex-col items-center justify-center space-y-10 uppercase tracking-[0.4em] text-xl font-light"
+    >
+      <button
+        id="closeBtn"
+        class="absolute top-10 right-8 text-[10px] font-bold border border-black px-4 py-2"
+      >
+        Close
+      </button>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="intracore.html">Intracore</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms & Conditions</a>
+    </div>
+
+    <!-- MAIN INTERFACE -->
+    <main id="viewContainer">
+      <header class="py-16 px-6 md:px-16 border-b border-black">
+        <h1 class="text-5xl md:text-7xl italic mb-6">Register Institution.</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Existing Notice -->
+
+          <!-- New Official Requirement -->
+          <div class="border-2 border-black p-8">
+            <p
+              class="text-[10px] uppercase tracking-[0.2em] font-bold mb-2 text-slate-400"
+            >
+              Official Requirement
+            </p>
+            <p
+              class="text-sm leading-relaxed uppercase tracking-tight font-bold"
+            >
+              Institutional registration must be performed by a school official
+              or designated coordinator. All entries require telephonic
+              verification before the Kashmir Circuit schedule is finalized.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <section class="py-20 px-6 md:px-16">
+        <div class="max-w-4xl mx-auto">
+          <form id="registrationForm" class="space-y-16">
+            <div class="grid grid-cols-1 gap-12">
+              <div>
+                <label
+                  class="block text-xs font-bold uppercase tracking-[0.3em] mb-2 text-slate-400"
+                  >Full Name of Official / Coordinator *</label
+                >
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  required
+                  placeholder="OFFICIAL NAME"
+                  class="input-field uppercase"
+                />
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                  <label
+                    class="block text-xs font-bold uppercase tracking-[0.3em] mb-2 text-slate-400"
+                    >Institution Name *</label
+                  >
+                  <input
+                    type="text"
+                    id="school"
+                    name="school"
+                    required
+                    placeholder="SCHOOL / COLLEGE NAME"
+                    class="input-field uppercase"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block text-xs font-bold uppercase tracking-[0.3em] mb-2 text-slate-400"
+                    >Designation *</label
+                  >
+                  <input
+                    type="text"
+                    id="designation"
+                    name="designation"
+                    required
+                    placeholder="E.G. PRINCIPAL / HOD"
+                    class="input-field uppercase"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                  <label
+                    class="block text-xs font-bold uppercase tracking-[0.3em] mb-2 text-slate-400"
+                    >Official Email *</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="INSTITUTION@EXAMPLE.COM"
+                    class="input-field"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block text-xs font-bold uppercase tracking-[0.3em] mb-2 text-black font-bold"
+                    >WhatsApp Number *</label
+                  >
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    placeholder="+91"
+                    class="input-field"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- T&C CHECKBOX -->
+            <label class="checkbox-wrapper mt-10">
+              <input type="checkbox" id="terms" required />
+              <div class="custom-box"></div>
+              <span
+                class="text-[10px] uppercase font-bold tracking-widest leading-relaxed"
+              >
+                I confirm that I am an authorized official of the institution
+                and have read all terms and conditions.
+              </span>
+            </label>
+
+            <button
+              id="submitBtn"
+              type="submit"
+              class="bg-black text-white px-12 py-6 font-bold uppercase tracking-[0.3em] text-xs hover:bg-slate-900 transition w-full md:w-auto flex items-center justify-center gap-4"
+            >
+              <span>Submit Registration</span>
+              <span id="loader" class="hidden"
+                ><span class="loader"></span
+              ></span>
+            </button>
+
+            <div
+              id="errorMsg"
+              class="text-red-500 text-[10px] uppercase font-bold tracking-widest hidden"
+            >
+              ✗ Verification failed. Please ensure all fields are complete.
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- THANK YOU VIEW (HIDDEN) -->
+    <template id="thankYouTemplate">
+      <div
+        class="min-h-[70vh] flex flex-col items-center justify-center px-6 text-center fade-in"
+      >
+        <h2
+          class="text-6xl md:text-8xl font-bold uppercase tracking-tighter mb-4 italic"
+        >
+          Submitted.
+        </h2>
+        <div class="w-24 h-1 bg-black mb-8"></div>
+        <p class="font-serif italic text-2xl md:text-3xl text-slate-500 mb-8">
+          The Institutional Profile has been filed.
+        </p>
+        <p
+          class="text-[11px] uppercase tracking-[0.4em] font-bold text-slate-400 max-w-lg leading-loose"
+        >
+          Verification Phase: A designated coordinator will contact your office
+          via the provided WhatsApp number to finalize telephonic verification.
+        </p>
+        <button
+          onclick="window.location.reload()"
+          class="mt-12 text-[10px] font-bold uppercase tracking-widest border-2 border-black px-10 py-5 hover:bg-black hover:text-white transition"
+        >
+          Return to Portal
+        </button>
+      </div>
+    </template>
+
+    <footer
+      class="py-12 px-6 md:px-16 border-t border-black text-[9px] uppercase tracking-[0.5em] font-bold text-slate-400 flex flex-col md:flex-row justify-between items-center"
+    >
+      <span>© 2026 GSC Kashmir Circuit</span>
+      <span class="mt-4 md:mt-0 italic"
+        >Institutional Registration Authority</span
+      >
+    </footer>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+        serverTimestamp,
+      } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCHdHqa5ovfS42qR7RXHbwAZ2j739QHbzg",
+        authDomain: "gsc-2026-5a7de.firebaseapp.com",
+        projectId: "gsc-2026-5a7de",
+        storageBucket: "gsc-2026-5a7de.firebasestorage.app",
+        messagingSenderId: "512967076358",
+        appId: "1:512967076358:web:f877aa56161630e0e87187",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      const form = document.getElementById("registrationForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const loader = document.getElementById("loader");
+      const viewContainer = document.getElementById("viewContainer");
+      const thankYouTemplate = document.getElementById("thankYouTemplate");
+
+      // Menu Toggle Logic
+      const menu = document.getElementById("mobileMenu");
+      const menuBtn = document.getElementById("menuBtn");
+      const closeBtn = document.getElementById("closeBtn");
+      if (menuBtn)
+        menuBtn.onclick = () => menu.classList.replace("hidden", "flex");
+      if (closeBtn)
+        closeBtn.onclick = () => menu.classList.replace("flex", "hidden");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        submitBtn.disabled = true;
+        loader.classList.remove("hidden");
+
+        const data = {
+          officialName: document.getElementById("fullName").value.trim(),
+          institutionName: document.getElementById("school").value.trim(),
+          designation: document.getElementById("designation").value.trim(),
+          email: document.getElementById("email").value.trim(),
+          phone: document.getElementById("phone").value.trim(),
+          type: "Institutional Registration",
+          timestamp: serverTimestamp(),
+        };
+
+        try {
+          await addDoc(collection(db, "institutional_registrations"), data);
+
+          // Switch to Thank You View with Smooth Transition
+          viewContainer.classList.add("fade-out");
+          setTimeout(() => {
+            viewContainer.innerHTML = thankYouTemplate.innerHTML;
+            viewContainer.classList.replace("fade-out", "fade-in");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }, 400);
+        } catch (error) {
+          console.error("Firebase Error:", error);
+          document.getElementById("errorMsg").classList.remove("hidden");
+          submitBtn.disabled = false;
+          loader.classList.add("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>

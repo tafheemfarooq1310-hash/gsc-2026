@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intracore Registration | Kashmir Circuit 2026</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg" />
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        cursor: crosshair; /* Added subtle aesthetic touch */
+      }
+
+      .font-serif {
+        font-family: "Playfair Display", serif;
+      }
+
+      /* Custom Input Styling */
+      .custom-input {
+        width: 100%;
+        padding: 1.25rem;
+        border-bottom: 2px solid #000;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        outline: none;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background: transparent;
+      }
+
+      .custom-input:focus {
+        border-bottom-color: #64748b;
+        padding-left: 2rem;
+        background: #f8fafc;
+      }
+
+      .custom-input::placeholder {
+        color: #94a3b8;
+        font-size: 10px;
+        letter-spacing: 0.3em;
+      }
+
+      /* Custom Checkbox */
+      .checkbox-container {
+        display: flex;
+        align-items: center;
+        user-select: none;
+        cursor: pointer;
+      }
+
+      .checkbox-container input {
+        display: none;
+      }
+
+      .checkmark {
+        height: 20px;
+        width: 20px;
+        border: 2px solid black;
+        display: inline-block;
+        margin-right: 15px;
+        position: relative;
+        transition: all 0.3s;
+      }
+
+      .checkbox-container input:checked + .checkmark {
+        background-color: black;
+      }
+
+      .checkbox-container input:checked + .checkmark:after {
+        content: "✓";
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 12px;
+      }
+
+      /* Smooth Transitions */
+      .fade-out {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.5s ease;
+      }
+      .fade-in {
+        opacity: 1;
+        transform: translateY(0);
+        transition: 0.5s ease;
+      }
+
+      .disabled-btn {
+        opacity: 0.4;
+        pointer-events: none;
+        filter: grayscale(1);
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-white text-black antialiased selection:bg-black selection:text-white"
+  >
+    <!-- NAVBAR -->
+    <nav
+      class="flex justify-between items-center px-6 md:px-16 py-8 border-b border-black bg-white sticky top-0 z-50"
+    >
+      <div class="flex items-center space-x-4">
+        <a href="index.html" class="group">
+          <img
+            src="logo.jpg"
+            alt="GSC 2026"
+            class="w-12 h-12 object-cover rounded-full border-2 border-black transition-transform group-hover:rotate-12"
+          />
+        </a>
+        <div class="flex flex-col">
+          <span
+            class="text-2xl font-bold tracking-tighter uppercase leading-none"
+            >GSC</span
+          >
+          <span
+            class="text-[9px] font-semibold text-slate-400 tracking-[0.3em] uppercase"
+            >Kashmir Circuit</span
+          >
+        </div>
+      </div>
+
+      <div
+        class="hidden md:flex space-x-12 uppercase text-[10px] tracking-[0.4em] font-bold"
+      >
+        <a href="index.html" class="hover:line-through transition">Home</a>
+        <a href="intracore.html" class="hover:line-through transition"
+          >Intracore</a
+        >
+        <a href="about.html" class="hover:line-through transition">About</a>
+        <a href="contact.html" class="hover:line-through transition">Contact</a>
+        <a href="terms.html" class="hover:line-through transition"
+          >Terms & Conditions</a
+        >
+      </div>
+
+      <button
+        id="menuBtn"
+        class="md:hidden text-[10px] font-bold uppercase border-2 border-black px-6 py-2 hover:bg-black hover:text-white transition"
+      >
+        Menu
+      </button>
+    </nav>
+
+    <!-- MOBILE MENU (Unchanged logic, updated style) -->
+    <div
+      id="mobileMenu"
+      class="fixed inset-0 bg-white z-[100] hidden flex-col items-center justify-center space-y-10 uppercase tracking-[0.5em] text-2xl font-light"
+    >
+      <button
+        id="closeBtn"
+        class="absolute top-10 right-8 text-[10px] font-bold border-2 border-black px-6 py-2"
+      >
+        Close
+      </button>
+      <a href="index.html" class="hover:italic">Home</a>
+      <a href="intracore.html" class="hover:italic">Intracore</a>
+      <a href="about.html" class="hover:italic">About</a>
+      <a href="contact.html" class="hover:italic">Contact</a>
+      <a href="terms.html" class="hover:italic">Terms & Conditions</a>
+    </div>
+
+    <!-- HERO -->
+    <header class="py-24 px-6 md:px-16 border-b border-black bg-slate-50/50">
+      <div class="max-w-5xl">
+        <span
+          class="text-[10px] font-bold tracking-[0.5em] uppercase text-slate-400 mb-4 block"
+          >Registration Portal</span
+        >
+        <h1
+          class="text-7xl md:text-9xl font-bold uppercase tracking-tighter leading-[0.85] mb-8"
+        >
+          The <br />Grid
+          <span class="font-serif italic font-light lowercase">2026</span>
+        </h1>
+        <p
+          class="font-serif italic text-2xl md:text-3xl text-slate-600 max-w-2xl"
+        >
+          Join the elite network of scholars in the Intracore Knowledge Grid
+          Phase 01.
+        </p>
+      </div>
+    </header>
+
+    <!-- FORM SECTION -->
+    <section class="py-24 px-6 md:px-16 min-h-[600px]" id="formSection">
+      <div class="max-w-3xl" id="contentContainer">
+        <form
+          id="registrationForm"
+          action="https://docs.google.com/forms/d/e/1FAIpQLScyP6yBkrAqe_IQL8FgE-iCUrklKud1xecXJ8sqkXFKJHHhBw/formResponse"
+          method="POST"
+          target="hidden_iframe"
+          class="space-y-12"
+        >
+          <div class="grid grid-cols-1 gap-12">
+            <input
+              type="email"
+              name="entry.340603808"
+              class="custom-input"
+              placeholder="Email Address"
+              required
+            />
+            <input
+              type="text"
+              name="entry.1019357638"
+              class="custom-input"
+              placeholder="Full Name"
+              required
+            />
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <input
+                type="text"
+                name="entry.1547293366"
+                class="custom-input"
+                placeholder="School Name"
+                required
+              />
+              <input
+                type="text"
+                name="entry.1879762670"
+                class="custom-input"
+                placeholder="Grade"
+                required
+              />
+            </div>
+
+            <input
+              type="tel"
+              name="entry.259468870"
+              class="custom-input"
+              placeholder="Phone Number"
+              required
+            />
+          </div>
+
+          <!-- TERMS CHECKBOX -->
+          <label class="checkbox-container">
+            <input type="checkbox" id="terms" required />
+            <span class="checkmark"></span>
+            <span class="text-[10px] uppercase tracking-widest font-semibold"
+              >I have read and agree to the Terms & Conditions</span
+            >
+          </label>
+
+          <button
+            id="submitBtn"
+            type="submit"
+            class="group relative overflow-hidden bg-black text-white px-16 py-6 uppercase text-[11px] font-bold tracking-[0.5em] transition-all hover:pr-20"
+          >
+            <span class="relative z-10">Initialize Registration →</span>
+            <div
+              class="absolute inset-0 bg-slate-800 translate-y-full group-hover:translate-y-0 transition-transform"
+            ></div>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- THANK YOU TEMPLATE (Hidden initially) -->
+    <template id="thankYouTemplate">
+      <div class="text-center py-20 fade-in">
+        <div class="mb-8 flex justify-center">
+          <div
+            class="w-24 h-24 border-2 border-black rounded-full flex items-center justify-center text-4xl"
+          >
+            ✓
+          </div>
+        </div>
+        <h2
+          class="text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-4"
+        >
+          Thank You
+        </h2>
+        <p class="font-serif italic text-2xl text-slate-500 mb-10">
+          Your registration has been encrypted and filed.
+        </p>
+        <button
+          onclick="window.location.reload()"
+          class="border-2 border-black px-10 py-4 uppercase text-[10px] font-bold tracking-widest hover:bg-black hover:text-white transition"
+        >
+          Return to start
+        </button>
+      </div>
+    </template>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t border-black bg-white text-center">
+      <p
+        class="text-[10px] uppercase tracking-[0.5em] font-bold text-slate-400"
+      >
+        © 2026 Global Scholars Championship | Kashmir Circuit
+      </p>
+    </footer>
+
+    <iframe
+      name="hidden_iframe"
+      id="hidden_iframe"
+      style="display: none"
+    ></iframe>
+
+    <!-- JAVASCRIPT -->
+    <script>
+      // Mobile Menu Logic
+      const menu = document.getElementById("mobileMenu");
+      const menuBtn = document.getElementById("menuBtn");
+      const closeBtn = document.getElementById("closeBtn");
+
+      menuBtn.onclick = () => {
+        menu.classList.replace("hidden", "flex");
+        document.body.style.overflow = "hidden";
+      };
+      closeBtn.onclick = () => {
+        menu.classList.replace("flex", "hidden");
+        document.body.style.overflow = "auto";
+      };
+
+      // Form Handling
+      const form = document.getElementById("registrationForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const iframe = document.getElementById("hidden_iframe");
+      const container = document.getElementById("contentContainer");
+      const template = document.getElementById("thankYouTemplate");
+
+      let submitted = false;
+
+      form.addEventListener("submit", () => {
+        submitted = true;
+        submitBtn.innerHTML = "Processing...";
+        submitBtn.classList.add("disabled-btn");
+      });
+
+      iframe.addEventListener("load", () => {
+        if (submitted) {
+          // Visual transition to Thank You page
+          container.classList.add("fade-out");
+
+          setTimeout(() => {
+            container.innerHTML = template.innerHTML;
+            container.classList.remove("fade-out");
+            container.classList.add("fade-in");
+            window.scrollTo({ top: 200, behavior: "smooth" });
+          }, 500);
+        }
+      });
+    </script>
+  </body>
+</html>
