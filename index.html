@@ -65,7 +65,7 @@
       <div class="flex items-center space-x-4">
         <a href="index.html">
           <img
-            src="logo.jpg"
+            src="logo.png"
             alt="GSC 2026"
             class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-full border border-black"
           />
@@ -148,7 +148,7 @@
       >
       <a href="terms.html">Terms & Conditions</a>
 
-      <img src="logo.jpg" class="w-12 opacity-20 mt-10 grayscale" alt="" />
+      <img src="logo.png" class="w-12 opacity-20 mt-10 grayscale" alt="" />
     </div>
 
     <!-- Main Hero Header -->
@@ -199,7 +199,7 @@
         <div class="relative mb-8">
           <!-- image_e4d820.jpg is the Intracore script logo -->
           <img
-            src="intacore-logo.jpeg"
+            src="intracore-logo.png"
             alt="Intracore Logo"
             class="w-72 md:w-[500px] h-auto intracore-logo-hover"
           />
@@ -530,6 +530,25 @@
         </div>
       </div>
     </section>
+    <audio id="bgMusic" autoplay loop>
+      <source src="Global Scholars Championship!.mp3.mpeg" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      const music = document.getElementById("bgMusic");
+
+      // Try autoplay
+      music.volume = 0.5;
+
+      // Some browsers block autoplay until user interaction
+      document.addEventListener(
+        "click",
+        () => {
+          music.play();
+        },
+        { once: true },
+      );
+    </script>
   </body>
   <script>
     function toggleMenu() {
