@@ -38,7 +38,6 @@
         font-family: "Playfair Display", serif;
       }
 
-      /* Fade animation */
       @keyframes fadeIn {
         from {
           opacity: 0;
@@ -51,7 +50,6 @@
         }
       }
 
-      /* Floating animation */
       @keyframes float {
         0% {
           transform: translateY(0px);
@@ -70,12 +68,10 @@
         animation: float 5s ease-in-out infinite;
       }
 
-      /* Menu animation */
       #mobileMenu {
         transition: all 0.35s ease;
       }
 
-      /* Link hover */
       a {
         transition: all 0.3s ease;
       }
@@ -84,7 +80,6 @@
         opacity: 0.7;
       }
 
-      /* Reveal animation */
       .fade-up {
         opacity: 0;
         transform: translateY(30px);
@@ -106,7 +101,6 @@
         }
       }
 
-      /* Quote style */
       .quote-box {
         position: relative;
       }
@@ -121,7 +115,6 @@
         font-family: serif;
       }
 
-      /* Card hover */
       .founder-card {
         transition: all 0.35s ease;
       }
@@ -142,7 +135,7 @@
       <div class="flex items-center space-x-4">
         <a href="index.html">
           <img
-            src="logo.jpg"
+            src="logo.png"
             alt="GSC 2026"
             class="w-12 h-12 md:w-14 md:h-14 object-contain floating-logo"
           />
@@ -176,6 +169,7 @@
         </a>
 
         <a href="contact.html">Contact</a>
+
         <a href="terms.html">Terms & Conditions</a>
       </div>
 
@@ -209,13 +203,12 @@
       <a href="about.html">About</a>
 
       <a href="contact.html">Contact</a>
+
       <a href="terms.html">Terms & Conditions</a>
     </div>
 
     <!-- HERO -->
-    <section
-      class="py-24 md:py-32 px-6 md:px-16 border-b border-black overflow-hidden"
-    >
+    <section class="py-24 md:py-32 px-6 md:px-16 border-b border-black">
       <div class="max-w-6xl mx-auto">
         <div class="mb-16 fade-up">
           <p
@@ -233,7 +226,9 @@
 
         <div class="grid md:grid-cols-2 gap-16 items-center">
           <!-- LEFT -->
-          <div class="space-y-8 text-lg text-slate-600 leading-relaxed">
+          <div
+            class="space-y-8 text-lg text-slate-600 leading-relaxed text-center md:text-left"
+          >
             <p class="fade-up fade-delay">
               The Global Scholars Championship (GSC) is Jammu & Kashmir’s
               premier academic arena, designed to identify and celebrate the
@@ -255,12 +250,11 @@
           </div>
 
           <!-- RIGHT -->
-          <div class="flex justify-center fade-up fade-delay-2">
+          <div class="flex justify-center">
             <img
-              src="logo.jpg
-              "
-              alt="Intracore Logo"
-              class="w-72 md:w-[450px] floating-logo"
+              src="logo.png"
+              alt="GSC Logo"
+              class="w-64 md:w-[380px] lg:w-[420px] object-contain floating-logo"
             />
           </div>
         </div>
@@ -341,7 +335,7 @@
     <footer
       class="py-12 px-6 md:px-16 border-t border-black bg-slate-50 text-center"
     >
-      <img src="logo.jpg" alt="Logo" class="w-24 mx-auto mb-6 opacity-70" />
+      <img src="logo.png" alt="Logo" class="w-24 mx-auto mb-6 opacity-70" />
 
       <p
         class="text-[10px] uppercase tracking-[0.4em] font-bold text-slate-400"
@@ -356,7 +350,6 @@
       const menuBtn = document.getElementById("menuBtn");
       const closeBtn = document.getElementById("closeBtn");
 
-      // Open menu
       menuBtn.addEventListener("click", () => {
         menu.classList.remove("hidden");
         menu.classList.add("flex");
@@ -364,15 +357,12 @@
         document.body.style.overflow = "hidden";
       });
 
-      // Close menu
       closeBtn.addEventListener("click", closeMenu);
 
-      // Close when clicking links
       document.querySelectorAll("#mobileMenu a").forEach((link) => {
         link.addEventListener("click", closeMenu);
       });
 
-      // ESC key close
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
           closeMenu();
@@ -385,6 +375,25 @@
 
         document.body.style.overflow = "auto";
       }
+    </script>
+    <audio id="bgMusic" autoplay loop>
+      <source src="Global Scholars Championship!.mp3.mpeg" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      const music = document.getElementById("bgMusic");
+
+      // Try autoplay
+      music.volume = 0.5;
+
+      // Some browsers block autoplay until user interaction
+      document.addEventListener(
+        "click",
+        () => {
+          music.play();
+        },
+        { once: true },
+      );
     </script>
   </body>
 </html>
