@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Institutional Registration | GSC 2026</title>
+    <title>Scholar Entry | GSC 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
@@ -12,43 +12,45 @@
     <style>
       body {
         font-family: "Inter", sans-serif;
-        background-color: #ffffff;
+        cursor: default;
       }
       h1 {
         font-family: "Playfair Display", serif;
       }
 
-      /* Minimalist Brutalist Inputs */
+      /* Refined Input Styling */
       .input-field {
         width: 100%;
         border: none;
         border-bottom: 2px solid #000;
-        padding: 1.25rem 0;
+        padding: 1.5rem 0;
         font-size: 1.1rem;
-        font-weight: 300;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        font-weight: 400;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         border-radius: 0;
         background: transparent;
+        letter-spacing: 0.05em;
       }
       .input-field:focus {
         outline: none;
-        border-bottom-width: 4px;
+        padding-left: 1rem;
         background-color: #fafafa;
-        padding-left: 0.75rem;
+        border-bottom-width: 3px;
       }
       .input-field::placeholder {
-        color: #e2e8f0;
-        letter-spacing: 0.1em;
-        font-weight: 700;
+        color: #cbd5e1;
+        letter-spacing: 0.2em;
         font-size: 0.75rem;
+        font-weight: 700;
       }
 
       /* Custom Checkbox */
       .checkbox-wrapper {
         display: flex;
         align-items: flex-start;
-        gap: 14px;
+        gap: 12px;
         cursor: pointer;
+        user-select: none;
       }
       .checkbox-wrapper input {
         display: none;
@@ -57,9 +59,9 @@
         min-width: 20px;
         height: 20px;
         border: 2px solid black;
-        margin-top: 4px;
+        margin-top: 2px;
         position: relative;
-        transition: all 0.2s;
+        transition: background 0.2s;
       }
       .checkbox-wrapper input:checked + .custom-box {
         background: black;
@@ -74,16 +76,16 @@
         transform: translate(-50%, -50%);
       }
 
-      /* Transitions */
+      /* Animations */
       .fade-out {
         opacity: 0;
-        transform: translateY(15px);
-        transition: 0.4s ease-in;
+        transform: translateY(20px);
+        transition: 0.5s ease;
       }
       .fade-in {
         opacity: 1;
         transform: translateY(0);
-        transition: 0.6s ease-out;
+        transition: 0.5s ease;
       }
 
       .loader {
@@ -102,17 +104,19 @@
       }
     </style>
   </head>
-  <body class="text-black antialiased selection:bg-black selection:text-white">
-    <!-- NAVIGATION -->
+  <body
+    class="bg-white text-black antialiased selection:bg-black selection:text-white"
+  >
+    <!-- NAVBAR -->
     <nav
       class="flex justify-between items-center px-6 md:px-16 py-8 border-b border-black bg-white sticky top-0 z-50"
     >
       <div class="flex items-center space-x-4">
-        <a href="index.html">
+        <a href="index.html" class="block">
           <img
             src="logo.png"
             alt="GSC 2026"
-            class="w-12 h-12 md:w-14 md:h-14 object-cover rounded-full border border-black"
+            class="w-12 h-12 md:w-14 md:h-14 object-cover rounded-full border-2 border-black hover:rotate-6 transition duration-500"
           />
         </a>
         <div class="flex flex-col">
@@ -121,42 +125,39 @@
             >GSC</span
           >
           <span
-            class="text-[10px] font-light text-slate-400 tracking-widest uppercase"
-            >Kashmir 2026</span
+            class="text-[9px] font-bold text-slate-400 tracking-[0.3em] uppercase"
+            >Kashmir Circuit</span
           >
         </div>
       </div>
 
       <div
-        class="hidden md:flex space-x-12 uppercase text-[10px] tracking-[0.3em] font-bold"
+        class="hidden md:flex space-x-12 uppercase text-[10px] tracking-[0.4em] font-bold"
       >
-        <a href="index.html" class="hover:opacity-50 transition">Home</a>
-        <a href="about.html" class="hover:opacity-50 transition">About</a>
-        <a href="intracore.html" class="hover:opacity-50 transition"
+        <a href="index.html" class="hover:line-through transition">Home</a>
+        <a href="about.html" class="hover:line-through transition">About</a>
+        <a href="intracore.html" class="hover:line-through transition"
           >Intracore</a
         >
-        <a href="contact.html" class="hover:opacity-50 transition">Contact</a>
-        <a href="terms.html" class="hover:opacity-50 transition">
-          Terms & Conditions
-        </a>
+        <a href="contact.html" class="hover:line-through transition">Contact</a>
       </div>
 
       <button
         id="menuBtn"
-        class="md:hidden text-[10px] font-bold uppercase border border-black px-4 py-2"
+        class="md:hidden text-[10px] font-bold uppercase border-2 border-black px-6 py-2"
       >
         Menu
       </button>
     </nav>
 
-    <!-- MOBILE OVERLAY -->
+    <!-- MOBILE MENU -->
     <div
       id="mobileMenu"
-      class="fixed inset-0 bg-white z-[100] hidden flex-col items-center justify-center space-y-10 uppercase tracking-[0.4em] text-xl font-light"
+      class="fixed inset-0 bg-white z-[100] hidden flex-col items-center justify-center space-y-10 uppercase tracking-[0.5em] text-2xl font-light"
     >
       <button
         id="closeBtn"
-        class="absolute top-10 right-8 text-[10px] font-bold border border-black px-4 py-2"
+        class="absolute top-10 right-8 text-[10px] font-bold border-2 border-black px-6 py-2"
       >
         Close
       </button>
@@ -164,50 +165,52 @@
       <a href="about.html">About</a>
       <a href="intracore.html">Intracore</a>
       <a href="contact.html">Contact</a>
-      <a href="terms.html">Terms & Conditions</a>
     </div>
 
-    <!-- MAIN INTERFACE -->
-    <main id="viewContainer">
-      <header class="py-16 px-6 md:px-16 border-b border-black">
-        <h1 class="text-5xl md:text-7xl italic mb-6">Register Institution.</h1>
+    <!-- MAIN CONTENT -->
+    <main id="mainContent">
+      <header class="py-24 px-6 md:px-16 border-b border-black bg-slate-50/50">
+        <div class="max-w-4xl">
+          <span
+            class="text-[10px] font-bold tracking-[0.5em] uppercase text-slate-400 mb-4 block"
+            >Registration 2026</span
+          >
+          <h1 class="text-6xl md:text-8xl italic mb-8 leading-[0.9]">
+            Scholar <br />Entry Portal.
+          </h1>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Existing Notice -->
-
-          <!-- New Official Requirement -->
-          <div class="border-2 border-black p-8">
+          <div
+            class="inline-block bg-black text-white p-8 max-w-2xl border-l-8 border-slate-500"
+          >
             <p
-              class="text-[10px] uppercase tracking-[0.2em] font-bold mb-2 text-slate-400"
+              class="text-sm leading-relaxed uppercase tracking-tight font-medium"
             >
-              Official Requirement
-            </p>
-            <p
-              class="text-sm leading-relaxed uppercase tracking-tight font-bold"
-            >
-              Institutional registration must be performed by a school official
-              or designated coordinator. All entries require telephonic
-              verification before the Kashmir Circuit schedule is finalized.
+              Individual scholarship entry for the Kashmir Circuit.
+              <span class="block mt-4 text-slate-400 text-xs italic"
+                >* Ensure your institution is registered to maintain
+                eligibility.</span
+              >
             </p>
           </div>
         </div>
       </header>
 
-      <section class="py-20 px-6 md:px-16">
-        <div class="max-w-4xl mx-auto">
+      <section class="py-24 px-6 md:px-16">
+        <div class="max-w-3xl mx-auto" id="formContainer">
           <form id="registrationForm" class="space-y-16">
-            <div class="grid grid-cols-1 gap-12">
-              <div>
+            <!-- Form Fields -->
+            <div class="space-y-12">
+              <div class="group">
                 <label
-                  class="block text-xs font-bold uppercase tracking-[0.3em] mb-2 text-slate-400"
-                  >Full Name of Official / Coordinator *</label
+                  class="block text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 group-focus-within:text-black transition"
+                  >Full Name of Scholar *</label
                 >
                 <input
                   type="text"
                   id="fullName"
                   name="fullName"
                   required
-                  placeholder="OFFICIAL NAME"
+                  placeholder="JOHN DOE"
                   class="input-field uppercase"
                 />
               </div>
@@ -215,29 +218,29 @@
               <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
                   <label
-                    class="block text-xs font-bold uppercase tracking-[0.3em] mb-2 text-slate-400"
-                    >Institution Name *</label
+                    class="block text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400"
+                    >Representing Institution *</label
                   >
                   <input
                     type="text"
                     id="school"
                     name="school"
                     required
-                    placeholder="SCHOOL / COLLEGE NAME"
+                    placeholder="SCHOOL NAME"
                     class="input-field uppercase"
                   />
                 </div>
                 <div>
                   <label
-                    class="block text-xs font-bold uppercase tracking-[0.3em] mb-2 text-slate-400"
-                    >Designation *</label
+                    class="block text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400"
+                    >Grade / Class *</label
                   >
                   <input
                     type="text"
-                    id="designation"
-                    name="designation"
+                    id="grade"
+                    name="grade"
                     required
-                    placeholder="E.G. PRINCIPAL / HOD"
+                    placeholder="CLASS 10"
                     class="input-field uppercase"
                   />
                 </div>
@@ -246,21 +249,21 @@
               <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
                   <label
-                    class="block text-xs font-bold uppercase tracking-[0.3em] mb-2 text-slate-400"
-                    >Official Email *</label
+                    class="block text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400"
+                    >Contact Email *</label
                   >
                   <input
                     type="email"
                     id="email"
                     name="email"
                     required
-                    placeholder="INSTITUTION@EXAMPLE.COM"
+                    placeholder="EMAIL@DOMAIN.COM"
                     class="input-field"
                   />
                 </div>
                 <div>
                   <label
-                    class="block text-xs font-bold uppercase tracking-[0.3em] mb-2 text-black font-bold"
+                    class="block text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400"
                     >WhatsApp Number *</label
                   >
                   <input
@@ -276,77 +279,97 @@
             </div>
 
             <!-- T&C CHECKBOX -->
-            <label class="checkbox-wrapper mt-10">
+            <label class="checkbox-wrapper">
               <input type="checkbox" id="terms" required />
               <div class="custom-box"></div>
               <span
-                class="text-[10px] uppercase font-bold tracking-widest leading-relaxed"
+                class="text-[10px] uppercase font-bold tracking-widest leading-loose"
               >
-                I confirm that I am an authorized official of the institution
-                and have read all terms and conditions.
+                I have read all the
+                <span class="underline">terms and conditions</span> and I
+                understand that verification updates will be sent to my provided
+                contact.
               </span>
             </label>
 
-            <button
-              id="submitBtn"
-              type="submit"
-              class="bg-black text-white px-12 py-6 font-bold uppercase tracking-[0.3em] text-xs hover:bg-slate-900 transition w-full md:w-auto flex items-center justify-center gap-4"
-            >
-              <span>Submit Registration</span>
-              <span id="loader" class="hidden"
-                ><span class="loader"></span
-              ></span>
-            </button>
+            <div class="pt-6">
+              <button
+                id="submitBtn"
+                type="submit"
+                class="bg-black text-white px-12 py-6 font-bold uppercase tracking-[0.4em] text-[11px] hover:bg-slate-800 transition duration-300 w-full md:w-auto flex items-center justify-center gap-4 group"
+              >
+                <span>Submit Enrollment</span>
+                <span id="btnLoader" class="hidden"
+                  ><span class="loader"></span
+                ></span>
+                <span class="group-hover:translate-x-2 transition-transform"
+                  >→</span
+                >
+              </button>
+            </div>
 
+            <!-- Error Message -->
             <div
-              id="errorMsg"
-              class="text-red-500 text-[10px] uppercase font-bold tracking-widest hidden"
+              id="errorMessage"
+              class="bg-red-50 border-l-4 border-red-500 text-red-700 p-6 text-xs uppercase tracking-widest font-bold hidden"
             >
-              ✗ Verification failed. Please ensure all fields are complete.
+              ✗ Registration failed. Check your data and try again.
             </div>
           </form>
         </div>
       </section>
     </main>
 
-    <!-- THANK YOU VIEW (HIDDEN) -->
+    <!-- THANK YOU PAGE TEMPLATE -->
     <template id="thankYouTemplate">
       <div
         class="min-h-[70vh] flex flex-col items-center justify-center px-6 text-center fade-in"
       >
-        <h2
-          class="text-6xl md:text-8xl font-bold uppercase tracking-tighter mb-4 italic"
+        <div class="mb-12">
+          <div
+            class="w-24 h-24 border-4 border-black rounded-full flex items-center justify-center mx-auto mb-6"
+          >
+            <span class="text-4xl font-bold">✓</span>
+          </div>
+          <h2 class="text-5xl md:text-7xl italic font-serif mb-4">
+            Registration Filed.
+          </h2>
+          <p
+            class="text-xs uppercase tracking-[0.5em] font-bold text-slate-400"
+          >
+            GSC Kashmir Circuit // 2026
+          </p>
+        </div>
+
+        <div class="max-w-xl bg-slate-50 border border-slate-200 p-8 mb-12">
+          <p class="text-sm uppercase tracking-tight leading-relaxed mb-4">
+            Your enrollment has been successfully transmitted to the scholars
+            grid. Verification is now in progress.
+          </p>
+          <p
+            class="text-[10px] text-slate-400 font-bold uppercase tracking-widest"
+          >
+            Expect a WhatsApp confirmation within 24–48 hours.
+          </p>
+        </div>
+
+        <a
+          href="index.html"
+          class="border-2 border-black px-12 py-5 text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-black hover:text-white transition duration-500"
         >
-          Submitted.
-        </h2>
-        <div class="w-24 h-1 bg-black mb-8"></div>
-        <p class="font-serif italic text-2xl md:text-3xl text-slate-500 mb-8">
-          The Institutional Profile has been filed.
-        </p>
-        <p
-          class="text-[11px] uppercase tracking-[0.4em] font-bold text-slate-400 max-w-lg leading-loose"
-        >
-          Verification Phase: A designated coordinator will contact your office
-          via the provided WhatsApp number to finalize telephonic verification.
-        </p>
-        <button
-          onclick="window.location.reload()"
-          class="mt-12 text-[10px] font-bold uppercase tracking-widest border-2 border-black px-10 py-5 hover:bg-black hover:text-white transition"
-        >
-          Return to Portal
-        </button>
+          Back to Home
+        </a>
       </div>
     </template>
 
     <footer
-      class="py-12 px-6 md:px-16 border-t border-black text-[9px] uppercase tracking-[0.5em] font-bold text-slate-400 flex flex-col md:flex-row justify-between items-center"
+      class="py-12 px-6 md:px-16 border-t border-black text-[9px] uppercase tracking-[0.5em] font-bold text-slate-400 flex flex-col md:flex-row justify-between items-center gap-4"
     >
       <span>© 2026 GSC Kashmir Circuit</span>
-      <span class="mt-4 md:mt-0 italic"
-        >Institutional Registration Authority</span
-      >
+      <span>Official Student Registration Portal</span>
     </footer>
 
+    <!-- Firebase SDK -->
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
       import {
@@ -370,50 +393,57 @@
 
       const form = document.getElementById("registrationForm");
       const submitBtn = document.getElementById("submitBtn");
-      const loader = document.getElementById("loader");
-      const viewContainer = document.getElementById("viewContainer");
+      const btnLoader = document.getElementById("btnLoader");
+      const errorMsg = document.getElementById("errorMessage");
+      const mainContent = document.getElementById("mainContent");
       const thankYouTemplate = document.getElementById("thankYouTemplate");
 
-      // Menu Toggle Logic
+      // Menu Toggle
       const menu = document.getElementById("mobileMenu");
       const menuBtn = document.getElementById("menuBtn");
       const closeBtn = document.getElementById("closeBtn");
-      if (menuBtn)
-        menuBtn.onclick = () => menu.classList.replace("hidden", "flex");
-      if (closeBtn)
-        closeBtn.onclick = () => menu.classList.replace("flex", "hidden");
+
+      menuBtn.onclick = () => {
+        menu.classList.replace("hidden", "flex");
+        document.body.style.overflow = "hidden";
+      };
+      closeBtn.onclick = () => {
+        menu.classList.replace("flex", "hidden");
+        document.body.style.overflow = "auto";
+      };
 
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
+        errorMsg.classList.add("hidden");
         submitBtn.disabled = true;
-        loader.classList.remove("hidden");
+        btnLoader.classList.remove("hidden");
 
         const data = {
-          officialName: document.getElementById("fullName").value.trim(),
-          institutionName: document.getElementById("school").value.trim(),
-          designation: document.getElementById("designation").value.trim(),
+          fullName: document.getElementById("fullName").value.trim(),
+          school: document.getElementById("school").value.trim(),
+          grade: document.getElementById("grade").value.trim(),
           email: document.getElementById("email").value.trim(),
           phone: document.getElementById("phone").value.trim(),
-          type: "Institutional Registration",
-          timestamp: serverTimestamp(),
+          registeredAt: serverTimestamp(),
+          status: "Pending",
         };
 
         try {
-          await addDoc(collection(db, "institutional_registrations"), data);
+          await addDoc(collection(db, "student_registrations"), data);
 
-          // Switch to Thank You View with Smooth Transition
-          viewContainer.classList.add("fade-out");
+          // Show Thank You Page
+          mainContent.classList.add("fade-out");
           setTimeout(() => {
-            viewContainer.innerHTML = thankYouTemplate.innerHTML;
-            viewContainer.classList.replace("fade-out", "fade-in");
+            mainContent.innerHTML = thankYouTemplate.innerHTML;
+            mainContent.classList.replace("fade-out", "fade-in");
             window.scrollTo({ top: 0, behavior: "smooth" });
-          }, 400);
+          }, 500);
         } catch (error) {
-          console.error("Firebase Error:", error);
-          document.getElementById("errorMsg").classList.remove("hidden");
+          console.error(error);
+          errorMsg.classList.remove("hidden");
           submitBtn.disabled = false;
-          loader.classList.add("hidden");
+          btnLoader.classList.add("hidden");
         }
       });
     </script>
