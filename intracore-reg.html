@@ -15,7 +15,7 @@
     />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="logo.jpg" />
+    <link rel="icon" type="image/jpeg" href="logo.png" />
 
     <style>
       body {
@@ -121,7 +121,7 @@
       <div class="flex items-center space-x-4">
         <a href="index.html" class="group">
           <img
-            src="logo.jpg"
+            src="logo.png"
             alt="GSC 2026"
             class="w-12 h-12 object-cover rounded-full border-2 border-black transition-transform group-hover:rotate-12"
           />
@@ -361,6 +361,25 @@
           }, 500);
         }
       });
+    </script>
+    <audio id="bgMusic" autoplay loop>
+      <source src="Global Scholars Championship!.mp3.mpeg" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      const music = document.getElementById("bgMusic");
+
+      // Try autoplay
+      music.volume = 0.5;
+
+      // Some browsers block autoplay until user interaction
+      document.addEventListener(
+        "click",
+        () => {
+          music.play();
+        },
+        { once: true },
+      );
     </script>
   </body>
 </html>
